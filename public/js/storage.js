@@ -13,7 +13,7 @@ const Storage = (() => {
   //  players/{uid}            : { name, totalScore, levelsDone, createdAt, updatedAt }
   //  players/{uid}/progress/{niveau} : { level, bestScore, attempts, completed, updatedAt }
   const FB_CONFIG = tauri ? null : (window.PB_FIREBASE || null);      // l'appli Tauri garde sa base SQLite locale
-  const FB_VERSION = '10.14.1', APP_VERSION = 'v0.1.0', AVATAR_COUNT = 15;      // AVATAR_COUNT : nombre de portraits (assets/avatars)
+  const FB_VERSION = '10.14.1', APP_VERSION = 'v0.2.0', AVATAR_COUNT = 15;      // AVATAR_COUNT : nombre de portraits (assets/avatars)
   let fbReady = null;
   function openFb() {
     if (!fbReady) {
