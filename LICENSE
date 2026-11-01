@@ -28,6 +28,8 @@ Ce que la licence MIT ci-dessus NE couvre PAS / What the MIT license does NOT co
   The "Princess Buster" logo is all rights reserved by the project author.
 - Les avatars (public/assets/avatars/*.jpg) : illustrations fournies par l'auteur du projet, tous droits réservés, non couverts par la licence MIT.
   The avatar illustrations are provided by the project author, all rights reserved.
+- L'illustration d'accueil (public/assets/home-bg.webp) et le podium (public/assets/podium.png) : fournis par l'auteur du projet, tous droits réservés, non couverts par la licence MIT.
+  The home illustration and the podium image are provided by the project author, all rights reserved.
 - Les logos des technologies (public/assets/tech/*.svg) viennent de Devicon
   (https://devicon.dev, licence MIT) et de Simple Icons (https://simpleicons.org, CC0) ; le logo de Grok est un dessin original ; les marques appartiennent à leurs propriétaires
   respectifs (HTML5, CSS3, JavaScript, Laravel, Docker, etc.).

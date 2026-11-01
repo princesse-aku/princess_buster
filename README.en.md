@@ -1,15 +1,18 @@
 <div align="center">
 
-<img src="public/assets/logo.png" alt="Princess Buster" width="220">
+<img src="public/assets/logo.png" alt="Princess Buster" width="200">
 
 # Princess Buster
 
-**Knock down all the techs!** A 2.5D shooter where you blast stacks of programming-language and framework cubes with a limited number of balls.
+**Bring down all the techs!**
+A 2.5D shooting game where you make stacks of programming-language and framework cubes collapse, with a limited number of balls.
+
+[**▶ Play online**](https://princess-buster.vercel.app/) · [Install on mobile](#-install-on-mobile) · [Contribute](CONTRIBUTING.md)
 
 [![CI](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml/badge.svg)](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-ffd23f.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%E2%89%A5%2022.5-3a3fe0.svg)
-![Zero npm dependencies](https://img.shields.io/badge/npm%20dependencies-0-ff3fa4.svg)
+![No npm dependencies](https://img.shields.io/badge/npm%20dependencies-0-ff3fa4.svg)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-5fd4ff.svg)](CONTRIBUTING.md)
 
 [Français](README.md) · [English](README.en.md)
@@ -17,46 +20,58 @@
 </div>
 
 <p align="center">
-  <img src="docs/promo/princess-buster-promo.png" alt="Princess Buster: knock down all the techs" width="100%">
+  <img src="docs/promo/princess-buster-promo.png" alt="Princess Buster" width="100%">
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/01-accueil.png" alt="Home screen" width="23%">
+  <img src="docs/screenshots/01-accueil.png" alt="Home" width="23%">
   <img src="docs/screenshots/02-niveaux.png" alt="Level select" width="23%">
   <img src="docs/screenshots/03-partie-niveau-3.png" alt="Level 3" width="23%">
-  <img src="docs/screenshots/04-partie-niveau-12.png" alt="Level 12 with hidden pieces" width="23%">
+  <img src="docs/screenshots/06-bien-joue.png" alt="Well played" width="23%">
 </p>
-
-> The game UI is currently in **French**. Translations are welcome (see the [roadmap](#roadmap)). The contribution guide is in French; feel free to open issues and PRs in English.
 
 ## The game
 
-A stack of cubes (HTML, CSS, JavaScript, PHP, Laravel, Node.js, Docker…) sits on a table. Your cannon, fixed at the bottom of the screen, fires balls: each ball **pushes the targeted piece toward the back**. It slides along the table and **falls off behind it**.
+A stack of cubes (HTML, CSS, JavaScript, PHP, Laravel, Docker, ChatGPT, Claude…) sits on a table. Your fixed cannon at the bottom of the screen fires balls, and each ball **hits the targeted piece**:
 
-- You **win** when no cube is left on the table. Every won level earns **20 points + 1 point per remaining ball** (e.g. 5 balls left = 20 + 5 = 25 points) (stars reward saved balls).
-- You **lose** when you run out of balls while cubes remain.
-- Difficulty ramps up: heavier and bigger pieces, and from level 5 on, **pieces hidden behind other pieces** (pushing the front piece knocks the one behind off first).
+- a **head-on** shot sends it **behind the table**;
+- an **angled** shot **throws it sideways**;
+- everything that rested on it loses its support and **collapses under gravity**, then the pieces **shatter into fragments** as they hit the ground.
+
+You **win** when the table is empty and **lose** when you run out of balls while cubes remain. Levels get harder: heavier and bigger pieces, taller stacks, and on some levels a **hidden row behind** the front one.
+
+## Play and install
+
+- ▶️ **Online**: <https://princess-buster.vercel.app/> on phone, tablet and desktop.
+- 📱 **<a id="-install-on-mobile"></a>Install on mobile (PWA)**: open the game in Chrome (Android) → ⋮ menu → **Install app**; on iPhone (Safari) → Share → **Add to Home Screen**. It then runs full screen like a native app, no APK needed.
+- 💻 **Locally**: see [Quick start](#quick-start-developers).
+
+On first launch: splash screen, terms, then **Sign in with Google** (to save your progress in the cloud and appear on the leaderboard) or **Play without an account**. You can sign in later from your profile.
 
 ## Features
 
-- 🎯 **250 levels** described in JSON files, with **50 technologies** (including AI logos: ChatGPT, Claude, Gemini, Grok, Mistral…) introduced progressively
-- 🎨 **12 backgrounds** that change from level to level: meadow, night, sunset, snow, desert, ocean, candy, forest, space, autumn, volcano, neon
-- 🧱 **Mixed piece shapes**: squares, wide or tall rectangles, 2×2, 3×1, 3×2
-- 🌌 **Simulated depth**: depending on shot angle and impact point a piece falls **behind the table, left or right**; one hidden row behind the front pieces on some levels
+- 🎯 **250 levels** in JSON files, **50 technologies** (including AI logos: ChatGPT, Claude, Gemini, Grok, Mistral…) unlocked step by step
+- 🎨 **12 in-game backgrounds** that change from level to level
+- 🏙️ **Illustrated home screen**: a full-screen futuristic city that adapts to every resolution, with the player's cup and a pile of cubes in the middle
+- 💥 **Physical collapses**: pieces ejected sideways or backwards, chains of falls, colored fragments on the ground (Matter.js)
 - 🔒 **No floating cubes**: every piece rests on another piece or on the table (checked by `npm test`)
-- 📱 **Adaptive full screen**: phone, tablet, desktop, portrait or landscape
-- ☁️ **Google sign-in, cloud progress and a global leaderboard** (unlocked at level 5) with Firebase / Firestore (optional, see [docs/FIREBASE.md](docs/FIREBASE.md), in French)
-- 💾 **SQLite profiles and scores**: player name asked at start, best scores, progressive unlocking, leaderboard
-- 🔊 Background music and SFX synthesized with WebAudio (no audio files)
+- 🎁 **Power-ups**: **triple shot** (level 3) and **super ball** (level 10), one of each per level
+- 👤 **Profiles**: 15 illustrated avatars, editable name; a default avatar is assigned at first sign-in
+- ☁️ **Google sign-in, cloud progress and a global leaderboard** with Firebase / Firestore (optional)
+- 🏆 **Leaderboard** with a podium, a top 10 and a full page, unlocked at level 5
+- 📱 **Adaptive full screen** (portrait, landscape, tablet) and installable (PWA)
+- ⚡ **Mobile-friendly**: cached background layers, capped canvas resolution that lowers itself automatically on slow devices
+- 🔊 Music and sound effects synthesized with WebAudio (no audio files)
 - 🧩 **Zero npm dependencies**: Node.js and a browser are enough (Matter.js is bundled)
 
-## Install and play
+## Progress, score and leaderboard
 
-- ▶️ **Play online**: <https://princess-buster.vercel.app/>
-- 📱 **Install as an app (PWA)**: open the game in Chrome (Android) → ⋮ menu → **Install app**; on iPhone (Safari) → Share → **Add to Home Screen**. No APK needed: it opens full screen like a native app.
-- 🌐 **Browser**: [Vercel deployment](docs/DEPLOY-VERCEL.md), playable on phone, tablet and desktop.
+- **Technologies**: levels 1-5 only use **HTML5 and CSS3**. Every 5 levels one more technology is unlocked (JavaScript at level 6, PHP at level 11, then Sass, Bootstrap, TypeScript, … the AIs, … Dart). All **50** are unlocked by level 240.
+- **Level score** (when won): **20 points + 1 point per remaining ball** (5 balls left = 25 points). A player's total is the sum of their best score per level.
+- **Stars**: 1 to 3, depending on the share of balls saved.
+- **Leaderboard** (from level 5): podium of the top 3, list down to 10th place, a **See more** button for the full list (up to 200 players), your rank highlighted. It needs Firebase; without it, it only shows players on the device.
 
-## Quick start
+## Quick start (developers)
 
 Requires [Node.js](https://nodejs.org) **22.5+** (built-in `node:sqlite`).
 
@@ -66,57 +81,62 @@ cd princess_buster
 npm start
 ```
 
-Then open <http://localhost:3000>.
+Open <http://localhost:3000>.
 
 ```bash
 npm test          # validates the 250 levels
-npm run levels    # regenerates levels (overwrites public/levels)
+npm run levels    # regenerates the levels (overwrites public/levels)
 ```
 
 ## Controls
 
 | Action | Mouse / touch | Keyboard |
 | --- | --- | --- |
-| Aim | Drag (the reticle follows your finger) | `←` `→` (or `A` `D`) |
-| Fire | Release | `Space` / `Enter` |
-| Cancel a shot | Drag back toward the cannon, then release | — |
-| Fullscreen | ⛶ button | — |
+| Aim | Drag | `←` `→` (or `A` `D`) |
+| Fire | Release | `Space` or `Enter` |
+| Power-up | Pick it on the level card | `1` (triple), `2` (super) |
 
 ## Levels
 
-A **new technology is unlocked every 5 levels**, step by step: levels 1-5 only use **HTML5 and CSS3**, JavaScript joins at level 6, PHP at level 11, then Sass, Bootstrap, TypeScript, jQuery, Tailwind CSS, Laravel, Node.js, Express, React, Vue.js, Angular, Python, Django, MySQL, MongoDB, Docker, Git, the AIs (ChatGPT, Claude, Gemini, Grok, Mistral AI, Perplexity, Hugging Face, GitHub Copilot, Ollama, Llama), Go, Rust, Kotlin, Swift, Java, C#, C++, Ruby, Flutter and Dart. All 50 technologies are unlocked by level 240 (Bash last). The reward chest shows the **next technology**. There are 12 rotating backgrounds.
+A level is a `public/levels/levelNNN.json` file (grid of `pieces` with `col/row/w/h/layer`, `balls`, `cubeWeight`, `theme`, `reward`…), produced by `tools/generate-levels.js`. Rules checked by `npm test`: no overlap in a row, everything inside the grid, and every piece rests on a piece of the same row or on the table. Details in [CONTRIBUTING.md](CONTRIBUTING.md) and, in French, in [README.md](README.md#créer-ou-modifier-un-niveau).
 
-A level is a `public/levels/levelNNN.json` file with `balls`, `cubeWeight`, `rows`, `cols` and a list of `pieces` (`tech`, `col`, `row`, `w`, `h`, `layer`). See the [French README](README.md#créer-ou-modifier-un-niveau) for the full format, and run `npm test` to validate your changes.
+## How it works
 
-## Project layout
+The engine stays **2D** (Matter.js) for stacking and falling, and simulates **depth** with a per-piece `z` axis. Hits accumulate; once a piece has taken enough, it is **ejected** (backwards for a head-on shot, sideways for an angled one). What rested on it loses support and falls, and fallen pieces **shatter** at ground level. Each level's static background is drawn once into off-screen layers; only animated elements are redrawn every frame.
 
-```
-public/            the game (static, Tauri-ready): index.html, css/, js/ (game, ui, audio, storage), levels/, assets/, vendor/
-server/server.js   test server: static files + SQLite API (node:sqlite)
-tools/             generate-levels.js, validate-levels.js
-docs/screenshots/  README screenshots
-.github/           CI, issue and PR templates
-```
+## Saving, accounts and Firebase
 
-API: `POST /api/player`, `POST /api/progress`, `GET /api/leaderboard`. Dev shortcuts: `/?name=Ada&level=12&autoplay=1`.
+| Engine | When | Data |
+| --- | --- | --- |
+| **Firebase** (Google + Firestore) | `public/js/firebase-config.js` filled in | Cloud: progress, profile, global leaderboard |
+| **SQLite** (local server API) | `npm start` | `data/princess-buster.db` |
+| **Native SQLite** (Tauri) | Tauri app | Device database |
+| **localStorage** | Fallback, guest mode without a server | Browser |
+
+The public profile (name, avatar, scores) feeds the leaderboard; e-mail, statistics and settings stay in a **private** profile only the player can read. Security rules are in [`firestore.rules`](firestore.rules); the step-by-step setup (in French) is in [docs/FIREBASE.md](docs/FIREBASE.md). Scores are computed in the browser, so a determined player could still send fake results: strict anti-cheat would need server-side validation.
+
+## Deployment
+
+- **Vercel** (static site): [docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md), preset `Other`, root directory `./`.
+- **Firebase**: [docs/FIREBASE.md](docs/FIREBASE.md).
+- **Android / desktop** (optional): [docs/ANDROID.md](docs/ANDROID.md), built with Tauri. The PWA install is enough for most uses.
 
 ## Roadmap
 
 - [ ] Desktop app with [Tauri](https://tauri.app)
 - [ ] Special pieces (explosive, unbreakable, bouncy)
-- [ ] Power-ups (triple shot, bomb…)
-- [ ] More levels and technologies (Go, Rust, Kotlin, Swift…)
-- [ ] Translations
+- [ ] Server-side score validation (Cloud Functions)
+- [ ] Translations (the game is in French)
 - [ ] Visual level editor
 
 ## Contributing
 
-Contributions are welcome! Read the [contributing guide](CONTRIBUTING.md) (French) and the [code of conduct](CODE_OF_CONDUCT.md). For security issues see [SECURITY.md](SECURITY.md).
+Contributions are welcome: bugs, levels, technologies, translations, accessibility, docs… Read the [contribution guide](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md). For a security issue, see [SECURITY.md](SECURITY.md).
 
 ## License and credits
 
-- Code: [MIT](LICENSE) © 2026 princesse-aku
-- The **"Princess Buster" logo** (`public/assets/logo.png`) is **not** covered by the MIT license: all rights reserved by the project author
-- The **avatars** (`public/assets/avatars/`) are illustrations by the project author: all rights reserved, not covered by the MIT license
-- Technology logos: [Devicon](https://devicon.dev) (MIT) and AI logos: [Simple Icons](https://simpleicons.org) (CC0); the Grok mark is an original drawing. Trademarks belong to their respective owners
+- Code: [MIT license](LICENSE) © 2026 princesse-aku
+- The **"Princess Buster" logo**, the **avatars** and the **home-screen illustration** are **not** covered by the MIT license: all rights reserved to the project author
+- Technology logos: [Devicon](https://devicon.dev) (MIT) and AI logos: [Simple Icons](https://simpleicons.org) (CC0); the Grok logo is an original drawing evoking the brand; the PHP logo is the PHP project's. Trademarks belong to their respective owners
 - Physics: [Matter.js](https://brm.io/matter-js/) (MIT)
+- Gameplay inspiration: mobile cube-stack shooters. No asset from those games is used here
