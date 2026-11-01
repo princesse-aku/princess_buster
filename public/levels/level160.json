@@ -4,7 +4,7 @@
   "theme": "snow",
   "block": 31,
   "reward": "kotlin",
-  "balls": 101,
+  "balls": 45,
   "cubeWeight": 2,
   "techs": [
     "html5",

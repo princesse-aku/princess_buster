@@ -4,7 +4,7 @@
   "theme": "space",
   "block": 30,
   "reward": null,
-  "balls": 126,
+  "balls": 55,
   "cubeWeight": 2,
   "techs": [
     "html5",

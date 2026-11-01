@@ -4,7 +4,7 @@
   "theme": "candy",
   "block": 10,
   "reward": "react",
-  "balls": 41,
+  "balls": 29,
   "cubeWeight": 2,
   "techs": [
     "html5",

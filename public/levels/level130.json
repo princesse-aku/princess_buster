@@ -4,7 +4,7 @@
   "theme": "autumn",
   "block": 25,
   "reward": "huggingface",
-  "balls": 80,
+  "balls": 41,
   "cubeWeight": 2,
   "techs": [
     "html5",

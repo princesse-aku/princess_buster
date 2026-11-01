@@ -101,7 +101,7 @@
   $('btn-accept').onclick = () => { Audio.init(); Audio.play('click'); store.set('pb_terms', '1'); closeModal('modal-terms'); afterTerms(); };
   const TERMS = {
     terms: '<h4>Conditions d\'utilisation</h4><p>Princess Buster est un jeu libre et gratuit, publié sous licence MIT. Tu peux y jouer, le copier et le modifier selon cette licence. Le logo « Princess Buster » reste la propriété de l\'auteur. Les logos des technologies appartiennent à leurs propriétaires respectifs.</p><p>Le jeu est fourni « tel quel », sans garantie.</p>',
-    privacy: '<h4>Politique de confidentialité</h4><p>Le jeu ne collecte aucune donnée personnelle et ne contient ni publicité ni traceur. Ton nom de joueur, ton avatar et tes scores sont enregistrés uniquement sur ton appareil (base SQLite locale ou stockage du navigateur) et ne sont envoyés nulle part.</p><p>Tu peux les effacer à tout moment en désinstallant l\'application ou en vidant les données du navigateur.</p>',
+    privacy: '<h4>Politique de confidentialité</h4><p>Le jeu ne collecte aucune donnée personnelle et ne contient ni publicité ni traceur. Ton pseudo, ton avatar et tes scores servent au classement général (Firebase), avec ou sans compte Google ; hors connexion, ils restent sur ton appareil (base SQLite locale ou stockage du navigateur). Si tu joues sans compte puis te connectes avec Google, ta progression est reprise dans ton compte.</p><p>Tu peux les effacer à tout moment en désinstallant l\'application ou en vidant les données du navigateur.</p>',
   };
   function showTerms(kind) {
     $('terms-detail').innerHTML = TERMS[kind]; $('terms-detail').classList.remove('hidden'); $('terms-welcome').classList.add('hidden');
@@ -215,7 +215,7 @@
     const lvl = await getLevel(n), prog = Storage.progressOf(n);
     $('lv-ribbon').textContent = `NIVEAU ${n}`;
     $('lv-theme').textContent = THEME_NAMES[lvl.theme] || lvl.theme;
-    $('lv-balls').textContent = lvl.balls;
+    $('lv-balls').textContent = Game.ballsFor(lvl);
     $('lv-pieces').textContent = lvl.pieces.length;
     $('lv-best').textContent = prog && prog.completed ? `⭐ ${prog.bestScore}` : '–';
     $('lv-tech').innerHTML = '';
@@ -275,7 +275,7 @@
   $('tg-vibe').onclick = () => { store.set('pb_vibe', store.get('pb_vibe', '1') === '1' ? '0' : '1'); refreshToggles(); if (navigator.vibrate) navigator.vibrate(30); syncSettings(); };
   $('tg-full').onclick = toggleFullscreen;
   $('btn-full-menu').onclick = toggleFullscreen;
-  const openSettings = (inGame) => { settingsInGame = inGame; $('btn-signout').classList.toggle('hidden', !(Storage.player && Storage.player.cloud)); $('in-game-actions').classList.toggle('hidden', !inGame); refreshToggles(); openModal('modal-settings'); };
+  const openSettings = (inGame) => { settingsInGame = inGame; $('btn-signout').classList.toggle('hidden', !(Storage.player && Storage.player.cloud && !Storage.player.anon)); $('in-game-actions').classList.toggle('hidden', !inGame); refreshToggles(); openModal('modal-settings'); };
   $('btn-settings').onclick = () => { Audio.init(); Audio.play('click'); openSettings(false); };
   $('btn-game-settings').onclick = () => { Audio.play('click'); openSettings(true); };
   $('btn-restart').onclick = () => { Audio.play('click'); closeModal('modal-settings'); startLevel(currentLevel); };
@@ -289,7 +289,7 @@
     $('prof-score').textContent = Storage.totalScore();
     $('prof-done').textContent = p.progress.filter((r) => r.completed).length;
     $('avatars').innerHTML = Array.from({ length: AVATAR_COUNT }, (_, i) => `<button type="button" data-a="${i}" class="${i === avatarOf() ? 'sel' : ''}"><img src="${avatarSrc(i)}" alt="" loading="lazy" draggable="false"></button>`).join('');
-    $('prof-cloud').classList.toggle('hidden', !(Storage.cloudEnabled && !p.cloud));      // invité : on propose de créer / lier un compte
+    $('prof-cloud').classList.toggle('hidden', !(Storage.cloudEnabled && (!p.cloud || p.anon)));      // invité : on propose de lier un compte Google
     $('profile-signin-msg').textContent = '';
     openModal('modal-profile');
   }
@@ -352,7 +352,7 @@
     if (ballsEl.textContent !== String(balls)) { const pill = ballsEl.parentElement; pill.classList.remove('bump'); void pill.offsetWidth; pill.classList.add('bump'); }
     ballsEl.textContent = balls;
     $('hud-cubes').innerHTML = `Cubes : <b>${cubes}</b>`;
-    if (tutoOn && levelData && balls < levelData.balls) endTuto();       // premier tir : le tutoriel s'efface
+    if (tutoOn && levelData && balls < Game.ballsFor(levelData)) endTuto();       // premier tir : le tutoriel s'efface
     for (const [name, id] of [['triple', 'pw-triple'], ['super', 'pw-super']]) {
       const b = $(id), locked = currentLevel < POWER_UNLOCK[name], used = !locked && !powers[name];
       b.classList.toggle('locked', locked); b.classList.toggle('used', used); b.classList.toggle('armed', armed === name);
@@ -393,7 +393,7 @@
     $('result').classList.remove('hidden');
     if (won) {
       const B = blockSize(), done = ((currentLevel - 1) % B) + 1;
-      const ratio = ballsLeft / levelData.balls; stars = ratio >= 0.5 ? 3 : ratio >= 0.25 ? 2 : 1;
+      const ratio = ballsLeft / Game.ballsFor(levelData); stars = ratio >= 0.5 ? 3 : ratio >= 0.25 ? 2 : 1;
       const pts = levelScore(ballsLeft);
       const reward = levelData.reward && techByKey(levelData.reward);          // techno débloquée à la fin du palier
       const unlockedNow = done === B && reward;
@@ -493,7 +493,7 @@
       const maxY = Math.max(...d.cubes.map((c) => c.position.y));
       const minZ = Math.min(...d.cubes.map((x) => x.z)), low = d.cubes.filter((x) => x.z <= minZ + 1 && x.position.y > maxY - 30);
       const c = low[Math.floor(Math.random() * low.length)] || d.cubes[0];
-      Game.setAimToward(c.position.x, c.position.y - (c.z - c.layer * 45) * 0.45); Game._advance(350); Game.fire(); Game._advance(2200);
+      Game.setAimToward(c.position.x, Game.visY(c)); Game._advance(350); Game.fire(); Game._advance(2200);
     }
     Game._advance(3500);
   }
@@ -508,7 +508,7 @@
       const maxY = Math.max(...front.map((c) => c.position.y));
       const low = front.filter((c) => c.position.y > maxY - 35);
       const c = low[Math.floor(Math.random() * low.length)];
-      Game.setAimToward(c.position.x, c.position.y - c.z * 0.45);
+      Game.setAimToward(c.position.x, Game.visY(c));
       Game.fire();
     }, qs.get('autoplay') === 'fast' ? 250 : 700);
   }

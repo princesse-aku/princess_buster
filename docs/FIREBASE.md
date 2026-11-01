@@ -12,6 +12,7 @@ Sans configuration (`public/js/firebase-config.js` = `null`), rien ne change : s
 
 1. <https://console.firebase.google.com> → **Ajouter un projet** (Google Analytics non nécessaire).
 2. **Créer → Authentication → Commencer → Méthode de connexion → Google → Activer** (choisis l'e-mail d'assistance).
+   Active aussi **Anonyme** (même écran) : l'invité qui joue « sans compte » reçoit un compte anonyme, il figure au classement sous son pseudo. Quand il se connecte ensuite avec Google, ce compte anonyme est relié au compte Google (même identifiant, scores gardés) ; si le compte Google existait déjà, la progression de l'invité y est reprise. Sans ce fournisseur, l'invité joue en local et n'apparaît pas au classement.
 3. **Authentication → Paramètres → Domaines autorisés** : ajoute `princess-buster.vercel.app` (et ton domaine perso s'il y en a un). `localhost` est déjà autorisé pour les tests.
 4. **Créer → Firestore Database → Créer une base** (mode production, région proche de tes joueurs, par exemple `eur3`).
 5. **Firestore → Règles** : colle le contenu de [`firestore.rules`](../firestore.rules) puis **Publier**.

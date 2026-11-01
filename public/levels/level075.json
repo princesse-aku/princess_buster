@@ -4,7 +4,7 @@
   "theme": "sunset",
   "block": 14,
   "reward": "django",
-  "balls": 55,
+  "balls": 35,
   "cubeWeight": 2,
   "techs": [
     "html5",

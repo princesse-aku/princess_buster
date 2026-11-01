@@ -4,7 +4,7 @@
   "theme": "volcano",
   "block": 35,
   "reward": null,
-  "balls": 130,
+  "balls": 55,
   "cubeWeight": 2,
   "techs": [
     "html5",

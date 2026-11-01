@@ -4,7 +4,7 @@
   "theme": "autumn",
   "block": 13,
   "reward": "python",
-  "balls": 54,
+  "balls": 36,
   "cubeWeight": 2,
   "techs": [
     "html5",

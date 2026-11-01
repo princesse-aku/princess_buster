@@ -1,5 +1,6 @@
 // Couche de sauvegarde. Quatre moteurs, mêmes données (players / progress) :
-//  0. Firebase (connexion Google + Firestore) : progression dans le cloud et classement général (si js/firebase-config.js est renseigné)
+//  0. Firebase (connexion Google, ou compte anonyme pour l'invité, + Firestore) : progression dans le cloud et classement général
+//     (si js/firebase-config.js est renseigné)
 //  1. Tauri (APK, desktop) : vraie base SQLite locale via tauri-plugin-sql
 //  2. Web : API SQLite du serveur de test (server/server.js)
 //  3. Repli : localStorage si rien d'autre n'est disponible
@@ -53,21 +54,49 @@ const Storage = (() => {
       }
     });
   }
-  // utilisateur Google connecté (session conservée par Firebase) ou null
+  // utilisateur connecté (session conservée par Firebase) ou null. Un invité a un compte anonyme (anon: true).
   async function cloudUser() {
     if (!FB_CONFIG) return null;
-    try { const f = await openFb(), u = f.au.currentUser; return u ? { uid: u.uid, name: u.displayName || '', photo: u.photoURL || '' } : null; } catch (e) { return null; }
+    try { const f = await openFb(), u = f.au.currentUser; return u ? { uid: u.uid, name: u.displayName || '', photo: u.photoURL || '', anon: u.isAnonymous } : null; } catch (e) { return null; }
   }
+  // Connexion Google. Un invité (compte anonyme) est RELIÉ au compte Google : même identifiant, pseudo, scores et classement gardés.
+  // Si ce compte Google existe déjà, la progression de l'invité est mise de côté sur l'appareil puis reprise dans ce compte (voir fbPlayer).
   async function googleSignIn() {
-    const f = await openFb(), provider = new f.auth.GoogleAuthProvider();
+    const f = await openFb(), provider = new f.auth.GoogleAuthProvider(), cur = f.au.currentUser;
     provider.setCustomParameters({ prompt: 'select_account' });
+    const redirectOnly = (e) => e && (e.code === 'auth/popup-blocked' || e.code === 'auth/operation-not-supported-in-this-environment');
+    if (cur && cur.isAnonymous) {
+      try { await f.auth.linkWithPopup(cur, provider); return cloudUser(); }
+      catch (e) {
+        if (redirectOnly(e)) { await f.auth.linkWithRedirect(cur, provider); return null; }
+        if (!e || (e.code !== 'auth/credential-already-in-use' && e.code !== 'auth/email-already-in-use')) throw e;
+        const cred = f.auth.GoogleAuthProvider.credentialFromError(e);
+        if (!cred) throw e;
+        await stashGuest(f);
+        await f.auth.signInWithCredential(f.au, cred);
+        return cloudUser();
+      }
+    }
     try { await f.auth.signInWithPopup(f.au, provider); }
     catch (e) {
-      if (e && (e.code === 'auth/popup-blocked' || e.code === 'auth/operation-not-supported-in-this-environment')) { await f.auth.signInWithRedirect(f.au, provider); return null; }
+      if (redirectOnly(e)) { await f.auth.signInWithRedirect(f.au, provider); return null; }
       throw e;
     }
     return cloudUser();
   }
+  // l'invité rejoint un compte Google existant : sa progression passe par la sauvegarde locale, son entrée quitte le classement
+  async function stashGuest(f) {
+    const name = (player && player.name) || lastNameOf(), key = name.toLowerCase(), db = readLocal();
+    const rec = db[key] || { id: 0, name, progress: [] };
+    for (const r of await fbProgress(f)) {
+      const c = rec.progress.find((x) => x.level === r.level);
+      if (!c) rec.progress.push({ level: r.level, bestScore: r.bestScore, attempts: r.attempts, completed: r.completed });
+      else { c.bestScore = Math.max(c.bestScore, r.bestScore); c.completed = c.completed || r.completed; }
+    }
+    db[key] = rec; writeLocal(db);
+    try { await f.fs.deleteDoc(f.fs.doc(f.db, 'players', f.uid)); } catch (e) { console.warn('Entrée invitée non retirée du classement', e); }
+  }
+  const lastNameOf = () => { try { return localStorage.getItem('pb_last_name') || 'Joueur'; } catch (e) { return 'Joueur'; } };
   async function cloudSignOut() { try { const f = await openFb(); await f.au.signOut(); } catch (e) { /* ignore */ } player = null; }
 
   async function fbPlayer(wanted, mergeFrom) {
@@ -108,7 +137,7 @@ const Storage = (() => {
       }
       if (changed) progress = await fbProgress(f);
     }
-    return { id: f.uid, name, avatar, settings, progress, offline: false, cloud: true };
+    return { id: f.uid, name, avatar, settings, progress, offline: false, cloud: true, anon: !!g.isAnonymous };
   }
   async function fbSave(level, score, won, extra) {
     const f = await openFb();
@@ -199,7 +228,12 @@ const Storage = (() => {
 
   async function login(name, mergeFrom) {
     if (FB_CONFIG) {
-      try { player = await fbPlayer(name, mergeFrom); } catch (e) { if (!name) throw e; console.warn('Firebase indisponible, repli', e); }
+      try {
+        const f = await openFb();
+        // invité : un compte anonyme Firebase, il figure au classement sous son pseudo (relié plus tard à Google, voir googleSignIn)
+        if (!f.uid && name) await f.auth.signInAnonymously(f.au);
+        player = await fbPlayer(name, mergeFrom);
+      } catch (e) { if (!name) throw e; console.warn('Firebase indisponible, repli', e); }
     }
     if (player && player.cloud) { /* connecté au cloud */ }
     else if (tauri) {

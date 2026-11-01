@@ -1,5 +1,5 @@
 rules_version = '2';
-// Règles Firestore de Princess Buster : chaque joueur (connecté avec Google) n'écrit que ses propres données.
+// Règles Firestore de Princess Buster : chaque joueur (compte Google, ou compte anonyme pour l'invité) n'écrit que ses propres données.
 //  - players/{uid}                    : profil PUBLIC (nom, avatar, scores) lisible par tous : sert au classement
 //  - players/{uid}/progress/{niveau}  : progression détaillée, lisible par le joueur seul
 //  - players/{uid}/private/profile    : infos du compte et de l'appareil, statistiques, réglages : le joueur seul
@@ -37,7 +37,8 @@ service cloud.firestore {
         && num(request.resource.data, 'totalStars') - num(resource.data, 'totalStars') <= 3
         && num(request.resource.data, 'totalStars') <= 250 * 3;
 
-      allow delete: if false;
+      // un invité (compte anonyme) qui rejoint un compte Google existant retire son entrée du classement
+      allow delete: if isOwner(uid) && request.auth.token.firebase.sign_in_provider == 'anonymous';
 
       match /progress/{level} {
         allow read: if isOwner(uid);

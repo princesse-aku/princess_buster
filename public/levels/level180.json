@@ -4,7 +4,7 @@
   "theme": "neon",
   "block": 35,
   "reward": "cplusplus",
-  "balls": 122,
+  "balls": 50,
   "cubeWeight": 2,
   "techs": [
     "html5",

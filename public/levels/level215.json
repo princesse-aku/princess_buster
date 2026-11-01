@@ -4,7 +4,7 @@
   "theme": "volcano",
   "block": 42,
   "reward": "postgresql",
-  "balls": 135,
+  "balls": 51,
   "cubeWeight": 2,
   "techs": [
     "html5",

@@ -4,7 +4,7 @@
   "theme": "candy",
   "block": 46,
   "reward": "nginx",
-  "balls": 140,
+  "balls": 50,
   "cubeWeight": 2,
   "techs": [
     "html5",

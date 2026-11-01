@@ -4,7 +4,7 @@
   "theme": "neon",
   "block": 16,
   "reward": null,
-  "balls": 66,
+  "balls": 34,
   "cubeWeight": 2,
   "techs": [
     "html5",

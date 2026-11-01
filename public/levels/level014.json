@@ -4,7 +4,7 @@
   "theme": "night",
   "block": 2,
   "reward": null,
-  "balls": 29,
+  "balls": 24,
   "cubeWeight": 1.42,
   "techs": [
     "html5",

@@ -4,7 +4,7 @@
   "theme": "desert",
   "block": 39,
   "reward": null,
-  "balls": 80,
+  "balls": 30,
   "cubeWeight": 2,
   "techs": [
     "html5",

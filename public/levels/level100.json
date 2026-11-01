@@ -4,7 +4,7 @@
   "theme": "snow",
   "block": 19,
   "reward": "openai",
-  "balls": 77,
+  "balls": 42,
   "cubeWeight": 2,
   "techs": [
     "html5",

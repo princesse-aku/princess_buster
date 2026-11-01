@@ -4,7 +4,7 @@
   "theme": "ocean",
   "block": 17,
   "reward": "docker",
-  "balls": 63,
+  "balls": 35,
   "cubeWeight": 2,
   "techs": [
     "html5",

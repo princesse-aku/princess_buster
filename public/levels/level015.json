@@ -4,7 +4,7 @@
   "theme": "sunset",
   "block": 2,
   "reward": "sass",
-  "balls": 34,
+  "balls": 30,
   "cubeWeight": 1.45,
   "techs": [
     "html5",

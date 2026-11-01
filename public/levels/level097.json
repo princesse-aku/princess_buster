@@ -4,7 +4,7 @@
   "theme": "meadow",
   "block": 19,
   "reward": null,
-  "balls": 63,
+  "balls": 32,
   "cubeWeight": 2,
   "techs": [
     "html5",

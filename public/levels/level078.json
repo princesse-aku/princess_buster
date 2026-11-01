@@ -4,7 +4,7 @@
   "theme": "ocean",
   "block": 15,
   "reward": null,
-  "balls": 55,
+  "balls": 30,
   "cubeWeight": 2,
   "techs": [
     "html5",

@@ -186,7 +186,7 @@ for (let id = 1; id <= TOTAL; id++) {
     back.push(...fillPieces(bmask, id, rand).map((p) => ({ tech: pick(), layer, ...p })));
     return bh;
   };
-  // UNE seule rangée cachée derrière la première, et seulement sur certains niveaux (environ 6 sur 10 à partir du niveau 6)
+  // UNE seule rangée cachée derrière la première (jamais plus de 2), et seulement sur certains niveaux (environ 6 sur 10 à partir du niveau 6)
   if (id >= 6 && (id * 7) % 10 < 6) addLayer(1, id < 12 ? 0.5 : id < 25 ? 0.75 : 1, heights);
   front.forEach((p) => { p.row += rowsTotal - mask.length; });
 
@@ -199,7 +199,9 @@ for (let id = 1; id <= TOTAL; id++) {
   const mass = hits;
   // marge de balles : serrée au début (le joueur est bon), plus généreuse quand 3 rangées de profondeur s'empilent
   const ratio = id <= 60 ? 1.05 - id * 0.0012 : id <= 100 ? 1.02 : 1.02 + (id - 100) * 0.0008;
-  balls = Math.max(5, Math.round(hits * ratio) + 2);
+  // une balle fait tomber une pièce ; l'effondrement en fait tomber d'autres, la marge se resserre donc au fil des niveaux
+  const hasBack = back.length > 0;   // même calcul que ballsFor() dans public/js/game.js
+  balls = Math.max(5, Math.min(Math.round(hits * ratio) + 2, Math.ceil(pieces.length * Math.max(hasBack ? 0.6 : 0.85, 1.15 - id * (hasBack ? 0.0025 : 0.0015))) + 3));
   theme = THEMES[(id - 1) % THEMES.length];
   // la difficulté (quantité de pièces) doit augmenter avec le niveau : on retire les tirages trop légers
   if (id > PLAN.length && mass < clamp(14 + id * 0.45, 14, 100) && attempt < 13) continue;

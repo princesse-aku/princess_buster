@@ -4,7 +4,7 @@
   "theme": "meadow",
   "block": 16,
   "reward": "mongodb",
-  "balls": 56,
+  "balls": 33,
   "cubeWeight": 2,
   "techs": [
     "html5",

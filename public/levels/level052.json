@@ -4,7 +4,7 @@
   "theme": "snow",
   "block": 10,
   "reward": null,
-  "balls": 46,
+  "balls": 33,
   "cubeWeight": 2,
   "techs": [
     "html5",

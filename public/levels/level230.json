@@ -4,7 +4,7 @@
   "theme": "night",
   "block": 45,
   "reward": "firebase",
-  "balls": 134,
+  "balls": 45,
   "cubeWeight": 2,
   "techs": [
     "html5",
