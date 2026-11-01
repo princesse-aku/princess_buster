@@ -20,14 +20,14 @@ Un jeu de tir en 2.5D où tu fais s'effondrer des piles de cubes de langages et 
 </div>
 
 <p align="center">
-  <img src="docs/promo/princess-buster-promo.png" alt="Princess Buster : fais tomber toutes les technos" width="100%">
+  <img src="docs/promo/princess-buster-promo.png?v=2" alt="Princess Buster : fais tomber toutes les technos" width="100%">
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/01-accueil.png" alt="Accueil" width="23%">
-  <img src="docs/screenshots/02-niveaux.png" alt="Choix du niveau" width="23%">
-  <img src="docs/screenshots/03-partie-niveau-3.png" alt="Niveau 3" width="23%">
-  <img src="docs/screenshots/06-bien-joue.png" alt="Bien Joué" width="23%">
+  <img src="docs/screenshots/01-accueil.png?v=2" alt="Accueil" width="23%">
+  <img src="docs/screenshots/02-niveaux.png?v=2" alt="Choix du niveau" width="23%">
+  <img src="docs/screenshots/03-partie-niveau-3.png?v=2" alt="Niveau 3" width="23%">
+  <img src="docs/screenshots/06-bien-joue.png?v=2" alt="Bien Joué" width="23%">
 </p>
 
 ## Sommaire
