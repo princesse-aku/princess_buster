@@ -20,14 +20,14 @@ A 2.5D shooting game where you make stacks of programming-language and framework
 </div>
 
 <p align="center">
-  <img src="docs/promo/princess-buster-promo.png" alt="Princess Buster" width="100%">
+  <img src="docs/promo/princess-buster-promo.png?v=2" alt="Princess Buster" width="100%">
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/01-accueil.png" alt="Home" width="23%">
-  <img src="docs/screenshots/02-niveaux.png" alt="Level select" width="23%">
-  <img src="docs/screenshots/03-partie-niveau-3.png" alt="Level 3" width="23%">
-  <img src="docs/screenshots/06-bien-joue.png" alt="Well played" width="23%">
+  <img src="docs/screenshots/01-accueil.png?v=2" alt="Home" width="23%">
+  <img src="docs/screenshots/02-niveaux.png?v=2" alt="Level select" width="23%">
+  <img src="docs/screenshots/03-partie-niveau-3.png?v=2" alt="Level 3" width="23%">
+  <img src="docs/screenshots/06-bien-joue.png?v=2" alt="Well played" width="23%">
 </p>
 
 ## The game
