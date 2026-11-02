@@ -1,6 +1,6 @@
 [package]
 name = "princess-buster"
-version = "0.2.0"
+version = "0.1.0"
 description = "Princess Buster - jeu de tir sur des piles de cubes de langages et frameworks"
 authors = ["princesse-aku"]
 license = "MIT"

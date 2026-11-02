@@ -41,7 +41,7 @@ Puis un fichier `keystore.properties` à côté (`storeFile`, `keyAlias`, `store
 
 ## Installer sur un téléphone
 
-1. Copie l'APK sur le téléphone (ou `adb install dist/PrincessBuster-0.2.0-aarch64.apk`).
+1. Copie l'APK sur le téléphone (ou `adb install dist/PrincessBuster-0.1.0-aarch64.apk`).
 2. Autorise l'installation depuis cette source (« sources inconnues »).
 3. Lance « Princess Buster ».
 
