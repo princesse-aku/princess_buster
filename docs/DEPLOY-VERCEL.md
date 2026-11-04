@@ -1,4 +1,4 @@
-# Déployer Princess Buster sur Vercel
+# Déployer PBuster sur Vercel
 
 Le jeu est un **site statique** : tout est dans le dossier `public/`. Vercel le sert tel quel (CDN mondial, HTTPS, déploiement automatique à chaque `git push`). Aucun serveur Node n'est nécessaire.
 
@@ -20,7 +20,7 @@ Vercel n'a **pas de disque persistant** : le serveur de test (`server/server.js`
 ## Méthode 1 — depuis le site de Vercel (recommandée, 3 minutes)
 
 1. Va sur <https://vercel.com/signup> et connecte-toi avec **GitHub** (compte `princesse-aku`).
-2. **Add New… → Project**, puis **Import** le dépôt `princesse-aku/princess_buster` (autorise l'application GitHub de Vercel sur ce dépôt si on te le demande).
+2. **Add New… → Project**, puis **Import** le dépôt `princesse-aku/PBuster` (autorise l'application GitHub de Vercel sur ce dépôt si on te le demande).
 3. Sur l'écran de configuration :
    - **Framework Preset** : `Other` (déjà détecté grâce à `vercel.json`)
    - **Root Directory** : `./` (par défaut)

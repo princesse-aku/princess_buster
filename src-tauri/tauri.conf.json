@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Princess Buster",
+  "productName": "PBuster",
   "version": "0.1.0",
   "identifier": "com.princessbuster.game",
   "build": {
@@ -11,7 +11,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Princess Buster",
+        "title": "PBuster",
         "width": 540,
         "height": 960,
         "minWidth": 360,
