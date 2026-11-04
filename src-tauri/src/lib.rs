@@ -6,5 +6,5 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_sql::Builder::default().build())
         .run(tauri::generate_context!())
-        .expect("erreur au lancement de PBuster");
+        .expect("erreur au lancement de Princess Buster");
 }

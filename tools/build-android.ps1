@@ -1,4 +1,4 @@
-# Compile l'APK Android de PBuster avec Tauri, l'aligne et le signe.
+# Compile l'APK Android de Princess Buster avec Tauri, l'aligne et le signe.
 #   powershell -ExecutionPolicy Bypass -File tools/build-android.ps1 [-Target aarch64|armv7|x86_64|i686|all]
 #
 # Prérequis (voir docs/ANDROID.md) : Rust + cibles Android, Android SDK/NDK, JDK 17+ (21 conseillé), npm install.
@@ -56,7 +56,7 @@ $bt = (Get-ChildItem "$env:ANDROID_HOME\build-tools" | Sort-Object Name -Descend
 $version = (Get-Content src-tauri\tauri.conf.json | ConvertFrom-Json).version
 $dist = Join-Path $root 'dist'; New-Item -ItemType Directory -Force $dist | Out-Null
 $aligned = Join-Path $dist 'aligned.tmp.apk'
-$out = Join-Path $dist "PBuster-$version-$Target.apk"
+$out = Join-Path $dist "PrincessBuster-$version-$Target.apk"
 
 & "$bt\zipalign.exe" -p -f 4 $unsigned.FullName $aligned
 & "$bt\apksigner.bat" sign --ks $props.storeFile --ks-key-alias $props.keyAlias --ks-pass "pass:$($props.storePassword)" --key-pass "pass:$($props.keyPassword)" --out $out $aligned

@@ -23,9 +23,9 @@ SOFTWARE.
 ---------------------------------------------------------------------------
 Ce que la licence MIT ci-dessus NE couvre PAS / What the MIT license does NOT cover:
 
-- Le logo « PBuster » (public/assets/logo.png) : tous droits réservés à
+- Le logo « Princess Buster » (public/assets/logo.png) : tous droits réservés à
   l'auteur du projet. Il ne peut pas être réutilisé pour un autre projet sans accord.
-  The "PBuster" logo is all rights reserved by the project author.
+  The "Princess Buster" logo is all rights reserved by the project author.
 - Les avatars (public/assets/avatars/*.jpg) : illustrations fournies par l'auteur du projet, tous droits réservés, non couverts par la licence MIT.
   The avatar illustrations are provided by the project author, all rights reserved.
 - L'illustration d'accueil (public/assets/home-bg.webp) et le podium (public/assets/podium.png) : fournis par l'auteur du projet, tous droits réservés, non couverts par la licence MIT.

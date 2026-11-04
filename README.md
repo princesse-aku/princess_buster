@@ -1,15 +1,15 @@
 <div align="center">
 
-<img src="public/assets/logo.png" alt="PBuster" width="200">
+<img src="public/assets/logo.png" alt="Princess Buster" width="200">
 
-# PBuster
+# Princess Buster
 
 **Fais tomber toutes les technos !**
 Un jeu de tir en 2.5D où tu fais s'effondrer des piles de cubes de langages et de frameworks de programmation, avec un nombre de balles limité.
 
-[**▶ Jouer en ligne**](https://princess-buster.vercel.app/) · [**⬇ Télécharger l'APK**](https://github.com/princesse-aku/PBuster/releases/download/v0.1.0/PBuster-0.1.0-aarch64.apk) · [Installer sur mobile](#-installer-sur-mobile) · [Contribuer](CONTRIBUTING.md)
+[**▶ Jouer en ligne**](https://princess-buster.vercel.app/) · [**⬇ Télécharger l'APK**](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) · [Installer sur mobile](#-installer-sur-mobile) · [Contribuer](CONTRIBUTING.md)
 
-[![CI](https://github.com/princesse-aku/PBuster/actions/workflows/ci.yml/badge.svg)](https://github.com/princesse-aku/PBuster/actions/workflows/ci.yml)
+[![CI](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml/badge.svg)](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-ffd23f.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%E2%89%A5%2022.5-3a3fe0.svg)
 ![Sans dépendance npm](https://img.shields.io/badge/d%C3%A9pendances%20npm-0-ff3fa4.svg)
@@ -20,7 +20,7 @@ Un jeu de tir en 2.5D où tu fais s'effondrer des piles de cubes de langages et 
 </div>
 
 <p align="center">
-  <img src="docs/promo/princess-buster-promo.png?v=2" alt="PBuster : fais tomber toutes les technos" width="100%">
+  <img src="docs/promo/princess-buster-promo.png?v=2" alt="Princess Buster : fais tomber toutes les technos" width="100%">
 </p>
 
 <p align="center">
@@ -63,7 +63,7 @@ Tu **gagnes** quand la table est vide, tu **perds** quand tu n'as plus de balles
 
 - ▶️ **En ligne** : <https://princess-buster.vercel.app/>, sur téléphone, tablette et ordinateur.
 - 📱 **<a id="-installer-sur-mobile"></a>Installer sur mobile (PWA)** : ouvre le jeu dans Chrome (Android) → menu ⋮ → **Installer l'application** ; sur iPhone (Safari) → Partager → **Sur l'écran d'accueil**. Le jeu s'ouvre alors en plein écran comme une vraie application, sans APK à télécharger.
-- 🤖 **APK Android** : [PBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/PBuster/releases/download/v0.1.0/PBuster-0.1.0-aarch64.apk) (téléphones arm64, depuis la page [Releases](https://github.com/princesse-aku/PBuster/releases)). Autorise l'installation depuis ton navigateur. La connexion Google n'y est pas disponible : pour le classement, utilise la version en ligne ou la PWA.
+- 🤖 **APK Android** : [PrincessBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) (téléphones arm64, depuis la page [Releases](https://github.com/princesse-aku/princess_buster/releases)). Autorise l'installation depuis ton navigateur. La connexion Google n'y est pas disponible : pour le classement, utilise la version en ligne ou la PWA.
 - 💻 **En local** : voir [Démarrage rapide](#démarrage-rapide-développeurs).
 
 Au premier lancement : écran de démarrage, conditions d'utilisation, puis **connexion avec Google** (pour sauvegarder ta progression dans le cloud et apparaître dans le classement) ou **« Jouer sans compte »**. Tu peux te connecter plus tard depuis ton profil.
@@ -98,8 +98,8 @@ Au premier lancement : écran de démarrage, conditions d'utilisation, puis **co
 Prérequis : [Node.js](https://nodejs.org) **22.5 ou plus** (module `node:sqlite` intégré).
 
 ```bash
-git clone https://github.com/princesse-aku/PBuster.git
-cd PBuster
+git clone https://github.com/princesse-aku/princess_buster.git
+cd princess_buster
 npm start
 ```
 
@@ -209,7 +209,7 @@ API du serveur local :
 ## Architecture du projet
 
 ```
-PBuster/
+princess_buster/
 ├── public/                    # le jeu (statique)
 │   ├── index.html             # écrans, SEO, accueil
 │   ├── css/                   # style.css, home.css, home2.css
@@ -256,7 +256,7 @@ PBuster/
 - [ ] Traductions (le jeu est en français)
 - [ ] Éditeur de niveaux visuel
 
-Une idée ? Ouvre une [issue](https://github.com/princesse-aku/PBuster/issues/new/choose).
+Une idée ? Ouvre une [issue](https://github.com/princesse-aku/princess_buster/issues/new/choose).
 
 ## Contribuer
 
@@ -266,7 +266,7 @@ Lis le [guide de contribution](CONTRIBUTING.md) et le [code de conduite](CODE_OF
 ## Licence et crédits
 
 - Code : [licence MIT](LICENSE) © 2026 princesse-aku
-- Le **logo « PBuster »**, les **avatars** et l'**illustration d'accueil** ne sont **pas** couverts par la licence MIT : tous droits réservés à l'auteur du projet
+- Le **logo « Princess Buster »**, les **avatars** et l'**illustration d'accueil** ne sont **pas** couverts par la licence MIT : tous droits réservés à l'auteur du projet
 - Logos des technologies : [Devicon](https://devicon.dev) (MIT) et logos d'IA : [Simple Icons](https://simpleicons.org) (CC0) ; le logo de Grok est un dessin original évoquant la marque ; le logo de PHP est celui du projet PHP. Les marques appartiennent à leurs propriétaires respectifs
 - Physique : [Matter.js](https://brm.io/matter-js/) (MIT)
 - Inspiration de gameplay : les jeux de tir de cubes en piles pour mobile. Aucun asset de ces jeux n'est utilisé ici
