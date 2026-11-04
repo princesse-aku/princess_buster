@@ -106,4 +106,4 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
     res.end(buf);
   });
-}).listen(PORT, () => console.log(`PBuster -> http://localhost:${PORT}`));
+}).listen(PORT, () => console.log(`Princess Buster -> http://localhost:${PORT}`));

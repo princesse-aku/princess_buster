@@ -1,6 +1,6 @@
-# Contribuer à PBuster
+# Contribuer à Princess Buster
 
-Merci de t'intéresser à PBuster ! Ce guide explique comment proposer des corrections, des niveaux, des technologies ou des fonctionnalités. Tout le monde est le bienvenu, débutant ou expérimenté.
+Merci de t'intéresser à Princess Buster ! Ce guide explique comment proposer des corrections, des niveaux, des technologies ou des fonctionnalités. Tout le monde est le bienvenu, débutant ou expérimenté.
 
 En participant, tu acceptes le [code de conduite](CODE_OF_CONDUCT.md).
 
@@ -37,8 +37,8 @@ Prérequis : [Node.js](https://nodejs.org) **22.5 ou plus**, Git et un navigateu
 
 ```bash
 # 1. Fork le dépôt sur GitHub, puis clone ton fork
-git clone https://github.com/<ton-compte>/PBuster.git
-cd PBuster
+git clone https://github.com/<ton-compte>/princess_buster.git
+cd princess_buster
 
 # 2. Lance le jeu
 npm start            # http://localhost:3000
@@ -58,7 +58,7 @@ Les fichiers de `public/` sont servis tels quels (sans cache) : modifie, puis re
 
 ## Workflow Git
 
-1. Mets ton fork à jour : `git remote add upstream https://github.com/princesse-aku/PBuster.git` puis `git pull upstream main`.
+1. Mets ton fork à jour : `git remote add upstream https://github.com/princesse-aku/princess_buster.git` puis `git pull upstream main`.
 2. Crée une branche **à partir de `main`**, avec un nom parlant :
    - `fix/canon-visee-tactile`
    - `feat/piece-explosive`
@@ -131,7 +131,7 @@ Si tu ajoutes un outil ou un script, documente-le dans le README.
 - N'ajoute **que** des fichiers que tu as créés ou dont la licence autorise la redistribution sous une licence compatible avec MIT (CC0, CC BY, MIT…). Indique la **source et la licence** dans la description de la PR.
 - N'ajoute **aucun asset** extrait d'autres jeux (graphismes, sons, musiques, captures).
 - Pas d'image de personne réelle sans son accord écrit.
-- Le logo « PBuster » reste la propriété de l'auteur du projet (voir [LICENSE](LICENSE)) : ne le modifie pas et ne le réutilise pas dans un autre projet sans accord.
+- Le logo « Princess Buster » reste la propriété de l'auteur du projet (voir [LICENSE](LICENSE)) : ne le modifie pas et ne le réutilise pas dans un autre projet sans accord.
 - Garde les fichiers légers : SVG ou WebP pour les images, et évite les fichiers audio volumineux (le son est actuellement synthétisé).
 
 ## Pull requests et revue
@@ -145,7 +145,7 @@ Si tu ajoutes un outil ou un script, documente-le dans le README.
 
 ## Signaler un bug ou proposer une idée
 
-Utilise les [modèles d'issues](https://github.com/princesse-aku/PBuster/issues/new/choose). Avant de créer une issue, cherche si elle n'existe pas déjà.
+Utilise les [modèles d'issues](https://github.com/princesse-aku/princess_buster/issues/new/choose). Avant de créer une issue, cherche si elle n'existe pas déjà.
 
 Pour un bug, indique : le niveau, les étapes pour reproduire, ce que tu attendais, l'appareil/OS/navigateur, l'orientation de l'écran, et une capture ou une vidéo si possible.
 
@@ -155,4 +155,4 @@ Pour un bug, indique : le niveau, les étapes pour reproduire, ce que tu attenda
 
 En ouvrant une pull request, tu acceptes que ta contribution soit publiée sous la [licence MIT](LICENSE) du projet (à l'exception des éléments réservés mentionnés dans ce fichier de licence), et tu confirmes avoir le droit de la partager.
 
-Merci de faire grandir PBuster ! 👑
+Merci de faire grandir Princess Buster ! 👑

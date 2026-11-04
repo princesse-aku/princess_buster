@@ -2,7 +2,7 @@
 
 ## Notre engagement
 
-Nous voulons que participer à PBuster soit une expérience agréable et sans harcèlement pour toutes et tous, quels que soient l'âge, le handicap, l'origine ethnique, l'identité ou l'expression de genre, le niveau d'expérience, la nationalité, l'apparence, la religion, l'orientation sexuelle ou le niveau d'études.
+Nous voulons que participer à Princess Buster soit une expérience agréable et sans harcèlement pour toutes et tous, quels que soient l'âge, le handicap, l'origine ethnique, l'identité ou l'expression de genre, le niveau d'expérience, la nationalité, l'apparence, la religion, l'orientation sexuelle ou le niveau d'études.
 
 Nous nous engageons à agir et à interagir de manière à construire une communauté ouverte, accueillante, diverse et saine.
 
