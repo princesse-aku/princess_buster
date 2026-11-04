@@ -211,3 +211,5 @@ html, body { margin: 0; height: 100%; overscroll-behavior: none; position: fixed
 #leaderboard-list li .nm, #ranking-list li .nm { flex: 1; min-width: 0; }
 #leaderboard-list li span:last-child { margin-left: auto; white-space: nowrap; font-size: 15px; float: none; }
 #leaderboard-list li { padding: 4px 6px; border-radius: 12px; }
+
+.more-levels { grid-column: 1 / -1; justify-self: center; margin: 10px 0 18px; }

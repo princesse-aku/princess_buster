@@ -38,7 +38,7 @@ Un jeu de tir en 2.5D où tu fais s'effondrer des piles de cubes de langages et 
 - [Progression, score et classement](#progression-score-et-classement)
 - [Démarrage rapide (développeurs)](#démarrage-rapide-développeurs)
 - [Contrôles](#contrôles)
-- [Les 250 niveaux](#les-250-niveaux)
+- [Les 1000 niveaux](#les-1000-niveaux)
 - [Créer ou modifier un niveau](#créer-ou-modifier-un-niveau)
 - [Comment ça marche](#comment-ça-marche)
 - [Sauvegarde, comptes et Firebase](#sauvegarde-comptes-et-firebase)
@@ -70,7 +70,7 @@ Au premier lancement : écran de démarrage, conditions d'utilisation, puis **co
 
 ## Fonctionnalités
 
-- 🎯 **250 niveaux** décrits en JSON, **50 technologies** (dont les logos des IA : ChatGPT, Claude, Gemini, Grok, Mistral…) débloquées pas à pas
+- 🎯 **1000 niveaux** décrits en JSON, **50 technologies** (dont les logos des IA : ChatGPT, Claude, Gemini, Grok, Mistral…) débloquées pas à pas
 - 🎨 **12 décors de jeu** qui changent de niveau en niveau : prairie, nuit, coucher de soleil, neige, désert, océan, bonbons, forêt, espace, automne, volcan, néon
 - 🏙️ **Accueil illustré** : une ville futuriste plein écran qui s'adapte à toutes les résolutions (portrait, paysage, tablette), avec la tasse du joueur et son tas de cubes au centre
 - 🧱 **Pièces de formats variés** : carrés, rectangles larges ou hauts, 2×2, 3×1, 3×2
@@ -106,7 +106,7 @@ npm start
 Ouvre <http://localhost:3000> (sur ton téléphone : `http://<ip-de-ton-pc>:3000`, même réseau Wi-Fi).
 
 ```bash
-npm test          # valide les 250 niveaux (formats, techs, thèmes, aucun cube suspendu)
+npm test          # valide les 1000 niveaux (formats, techs, thèmes, aucun cube suspendu)
 npm run levels    # régénère les niveaux (attention : écrase public/levels)
 ```
 
@@ -122,7 +122,7 @@ npm run levels    # régénère les niveaux (attention : écrase public/levels)
 | Bonus | Choisis-le sur la fiche du niveau | `1` (triple), `2` (super) |
 | Plein écran | Bouton ⛶ | n/a |
 
-## Les 250 niveaux
+## Les 1000 niveaux
 
 Les niveaux sont des fichiers `public/levels/levelNNN.json` produits par `tools/generate-levels.js` :
 
@@ -130,6 +130,8 @@ Les niveaux sont des fichiers `public/levels/levelNNN.json` produits par `tools/
 - une rangée cachée derrière celle de devant sur certains niveaux (à partir du niveau 9), jamais plus de 2 plans ;
 - un décor différent à chaque niveau (rotation des 12 thèmes) ;
 - un nombre de balles calculé d'après la difficulté de chaque niveau.
+- les 50 technologies sont toutes débloquées au niveau 240 ; au-delà, la taille des piles plafonne (9×8) et la difficulté se stabilise, avec des formes et des mélanges de pièces différents à chaque niveau.
+- le menu n'affiche que les niveaux déjà joués et les suivants, avec un bouton **Voir plus de niveaux**.
 
 ## Créer ou modifier un niveau
 
@@ -217,7 +219,7 @@ PBuster/
 │   │   ├── audio.js           # musique + bruitages synthétisés (WebAudio)
 │   │   ├── storage.js         # sauvegarde : Firebase, SQLite, localStorage
 │   │   └── firebase-config.js # configuration Firebase (null = désactivé)
-│   ├── levels/                # index.json + level001..250.json
+│   ├── levels/                # index.json + level001..1000.json
 │   ├── assets/                # logo, avatars, podium, fond d'accueil, tech/*.svg (50 logos)
 │   └── vendor/matter.min.js
 ├── server/server.js           # serveur local : fichiers statiques + API SQLite (node:sqlite)

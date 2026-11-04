@@ -2,7 +2,7 @@
 (() => {
   const $ = (id) => document.getElementById(id);
   const stage = $('stage');
-  let TOTAL_LEVELS = 250;       // mis à jour depuis levels/index.json
+  let TOTAL_LEVELS = 1000;       // mis à jour depuis levels/index.json
   let meta = null;              // { techs, themes, levels }
   let currentLevel = 1;
   let levelData = null;
@@ -174,6 +174,7 @@
   $('btn-menu-back').onclick = () => { Audio.play('click'); openHome(); };
 
   // ============================== liste des niveaux ==============================
+  let menuExtra = 0;                                             // niveaux supplémentaires dépliés dans le menu
   function openMenu() {
     Game.stop();
     const p = Storage.player;
@@ -181,7 +182,9 @@
     $('total-score').textContent = Storage.totalScore();
     const grid = $('level-grid'); grid.innerHTML = '';
     let current = null;
-    for (let n = 1; n <= TOTAL_LEVELS; n++) {
+    // 1000 niveaux : on affiche ceux déjà joués et quelques niveaux à venir, le reste se déplie à la demande
+    const shown = Math.min(TOTAL_LEVELS, Math.ceil((nextLevelToPlay() + 29 + menuExtra) / 10) * 10);
+    for (let n = 1; n <= shown; n++) {
       if ((n - 1) % 10 === 0) {                                  // un titre par dizaine de niveaux
         const h = document.createElement('div');
         h.className = 'world'; h.textContent = `Niveaux ${n} – ${Math.min(n + 9, TOTAL_LEVELS)}`;
@@ -198,6 +201,12 @@
       b.addEventListener('click', () => { if (!unlocked) return; Audio.play('click'); openLevelModal(n); });
       grid.appendChild(b);
       if (isCurrent && !current) current = b;
+    }
+    if (shown < TOTAL_LEVELS) {
+      const more = document.createElement('button');
+      more.className = 'btn blue small more-levels'; more.textContent = `Voir plus de niveaux (${shown + 1} – ${Math.min(shown + 50, TOTAL_LEVELS)})`;
+      more.addEventListener('click', () => { Audio.play('click'); menuExtra += 50; openMenu(); });
+      grid.appendChild(more);
     }
     show('menu');
     if (current) current.scrollIntoView({ block: 'center' });      // on arrive sur le prochain niveau à jouer
