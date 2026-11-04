@@ -61,21 +61,21 @@
   "rows": 5,
   "cols": 9,
   "pieces": [
-    {"tech":"angular","layer":0,"col":4,"row":0,"w":1,"h":2},
+    {"tech":"angular","layer":0,"col":4,"row":0,"w":1,"h":2,"kind":"cyl"},
     {"tech":"llama","layer":0,"col":3,"row":1,"w":1,"h":1},
-    {"tech":"javascript","layer":0,"col":5,"row":1,"w":1,"h":1},
+    {"tech":"javascript","layer":0,"col":5,"row":1,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":2,"row":2,"w":2,"h":1},
     {"tech":"bash","layer":0,"col":4,"row":2,"w":2,"h":1},
-    {"tech":"bash","layer":0,"col":6,"row":2,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":6,"row":2,"w":1,"h":1,"kind":"cyl"},
     {"tech":"nextjs","layer":0,"col":1,"row":3,"w":2,"h":1},
     {"tech":"sass","layer":0,"col":3,"row":3,"w":2,"h":1},
     {"tech":"html5","layer":0,"col":5,"row":3,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":6,"row":3,"w":2,"h":2},
     {"tech":"grok","layer":0,"col":0,"row":4,"w":2,"h":1},
-    {"tech":"bash","layer":0,"col":2,"row":4,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":2,"row":4,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":3,"row":4,"w":1,"h":1},
     {"tech":"mongodb","layer":0,"col":4,"row":4,"w":1,"h":1},
-    {"tech":"go","layer":0,"col":5,"row":4,"w":1,"h":1},
-    {"tech":"nginx","layer":0,"col":8,"row":4,"w":1,"h":1}
+    {"tech":"go","layer":0,"col":5,"row":4,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"nginx","layer":0,"col":8,"row":4,"w":1,"h":1,"kind":"cyl"}
   ]
 }
