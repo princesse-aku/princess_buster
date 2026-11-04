@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#0a0838">
   <title>PBuster - Jeu de tir gratuit : fais tomber les cubes de langages de programmation</title>
-  <meta name="description" content="PBuster : jeu mobile gratuit et open source. Tire sur des piles de cubes HTML, CSS, JavaScript, PHP, ChatGPT, Claude... 250 niveaux, 12 décors. Joue en ligne ou installe-le comme une application sur ton téléphone.">
+  <meta name="description" content="PBuster : jeu mobile gratuit et open source. Tire sur des piles de cubes HTML, CSS, JavaScript, PHP, ChatGPT, Claude... 1000 niveaux, 12 décors. Joue en ligne ou installe-le comme une application sur ton téléphone.">
   <meta name="keywords" content="PBuster, jeu gratuit, jeu de tir, jeu de cubes, jeu pour développeurs, apprendre la programmation en jouant, HTML, CSS, JavaScript, PHP, Laravel, jeu android, jeu open source, jeu navigateur">
   <meta name="author" content="princesse-aku">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -22,19 +22,19 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:url" content="https://princess-buster.vercel.app/">
   <meta property="og:title" content="PBuster - Fais tomber toutes les technos !">
-  <meta property="og:description" content="Jeu gratuit et open source : tire sur des piles de cubes HTML, CSS, JavaScript, PHP, ChatGPT, Claude... 250 niveaux, 12 décors. Sur mobile, tablette et PC.">
-  <meta property="og:image" content="https://princess-buster.vercel.app/assets/og.jpg?v=2">
-  <meta property="og:image:secure_url" content="https://princess-buster.vercel.app/assets/og.jpg?v=2">
+  <meta property="og:description" content="Jeu gratuit et open source : tire sur des piles de cubes HTML, CSS, JavaScript, PHP, ChatGPT, Claude... 1000 niveaux, 12 décors. Sur mobile, tablette et PC.">
+  <meta property="og:image" content="https://princess-buster.vercel.app/assets/og.jpg?v=3">
+  <meta property="og:image:secure_url" content="https://princess-buster.vercel.app/assets/og.jpg?v=3">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PBuster : un canon tire sur des piles de cubes de technologies. 250 niveaux, gratuit.">
+  <meta property="og:image:alt" content="PBuster : un canon tire sur des piles de cubes de technologies. 1000 niveaux, gratuit.">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PBuster - Fais tomber toutes les technos !">
-  <meta name="twitter:description" content="Jeu gratuit : tire sur des piles de cubes HTML, CSS, JavaScript, PHP, ChatGPT, Claude... 250 niveaux.">
-  <meta name="twitter:image" content="https://princess-buster.vercel.app/assets/og.jpg?v=2">
+  <meta name="twitter:description" content="Jeu gratuit : tire sur des piles de cubes HTML, CSS, JavaScript, PHP, ChatGPT, Claude... 1000 niveaux.">
+  <meta name="twitter:image" content="https://princess-buster.vercel.app/assets/og.jpg?v=3">
   <meta name="twitter:image:alt" content="PBuster : un canon tire sur des piles de cubes de technologies.">
 
   <!-- Mobile / PWA -->
@@ -51,9 +51,9 @@
     "@type": ["SoftwareApplication", "VideoGame"],
     "name": "PBuster",
     "alternateName": "PBuster - Fais tomber toutes les technos !",
-    "description": "Jeu de tir gratuit et open source : fais tomber des piles de cubes de langages et de frameworks de programmation avec un nombre de balles limité. 250 niveaux, 12 décors.",
+    "description": "Jeu de tir gratuit et open source : fais tomber des piles de cubes de langages et de frameworks de programmation avec un nombre de balles limité. 1000 niveaux, 12 décors.",
     "url": "https://princess-buster.vercel.app/",
-    "image": "https://princess-buster.vercel.app/assets/og.jpg?v=2",
+    "image": "https://princess-buster.vercel.app/assets/og.jpg?v=3",
     "inLanguage": "fr",
     "applicationCategory": "GameApplication",
     "genre": ["Arcade", "Puzzle"],
@@ -72,7 +72,7 @@
 </head>
 <body>
   <h1 class="sr-only">PBuster : jeu de tir gratuit, fais tomber les cubes de langages de programmation</h1>
-  <p class="sr-only">PBuster est un jeu gratuit et open source en 250 niveaux : un canon tire sur des piles de cubes HTML, CSS, JavaScript, PHP, Laravel, React, Python, ChatGPT, Claude et bien d'autres. Joue dans ton navigateur sur téléphone, tablette ou ordinateur, ou installe-le comme une application.</p>
+  <p class="sr-only">PBuster est un jeu gratuit et open source en 1000 niveaux : un canon tire sur des piles de cubes HTML, CSS, JavaScript, PHP, Laravel, React, Python, ChatGPT, Claude et bien d'autres. Joue dans ton navigateur sur téléphone, tablette ou ordinateur, ou installe-le comme une application.</p>
   <noscript><p style="padding:24px;color:#fff;font-family:sans-serif">PBuster est un jeu qui nécessite JavaScript. Active JavaScript dans ton navigateur pour jouer, ou retrouve le projet sur <a href="https://github.com/princesse-aku/PBuster" style="color:#ffd23f">GitHub</a>.</p></noscript>
   <div id="stage">
 
@@ -279,7 +279,7 @@
             <div class="avatar big"><span id="prof-avatar"></span></div>
             <form id="rename-form"><input id="rename-input" maxlength="20" autocomplete="off" aria-label="Nom du joueur"><button class="btn small" type="submit">✓</button></form>
           </div>
-          <div class="prof-stats"><span>⭐ <b id="prof-score">0</b> pts</span><span>✅ <b id="prof-done">0</b>/250 niveaux</span></div>
+          <div class="prof-stats"><span>⭐ <b id="prof-score">0</b> pts</span><span>✅ <b id="prof-done">0</b>/1000 niveaux</span></div>
           <div class="avatars" id="avatars"></div>
           <div class="prof-cloud hidden" id="prof-cloud">
             <p>Tu joues sans compte : ta progression reste sur cet appareil et tu n'apparais pas dans le classement général.</p>

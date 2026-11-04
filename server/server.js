@@ -80,7 +80,7 @@ async function api(req, res, url) {
     }
     if (req.method === 'POST' && url.pathname === '/api/progress') {
       const { playerId, level, score, won } = await readBody(req);
-      if (!Number.isInteger(playerId) || !Number.isInteger(level) || level < 1 || level > 250) return send(res, 400, { error: 'Paramètres invalides' });
+      if (!Number.isInteger(playerId) || !Number.isInteger(level) || level < 1 || level > 1000) return send(res, 400, { error: 'Paramètres invalides' });
       q.upsertProgress.run(playerId, level, won ? Math.max(0, score | 0) : 0, won ? 1 : 0);
       const player = db.prepare('SELECT id, name FROM players WHERE id = ?').get(playerId);
       if (!player) return send(res, 404, { error: 'Joueur inconnu' });

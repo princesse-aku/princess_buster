@@ -27,15 +27,15 @@ service cloud.firestore {
         && (!('avatar' in request.resource.data) || (request.resource.data.avatar is int && request.resource.data.avatar >= 0 && request.resource.data.avatar < 100))
         && request.resource.data.totalScore >= num(resource.data, 'totalScore')
         && request.resource.data.totalScore - num(resource.data, 'totalScore') <= 220
-        && request.resource.data.totalScore <= 250 * 220
+        && request.resource.data.totalScore <= 1000 * 220
         && request.resource.data.levelsDone >= num(resource.data, 'levelsDone')
         && request.resource.data.levelsDone - num(resource.data, 'levelsDone') <= 1
-        && request.resource.data.levelsDone <= 250
+        && request.resource.data.levelsDone <= 1000
         && num(request.resource.data, 'maxLevel') >= num(resource.data, 'maxLevel')
-        && num(request.resource.data, 'maxLevel') <= 250
+        && num(request.resource.data, 'maxLevel') <= 1000
         && num(request.resource.data, 'totalStars') >= num(resource.data, 'totalStars')
         && num(request.resource.data, 'totalStars') - num(resource.data, 'totalStars') <= 3
-        && num(request.resource.data, 'totalStars') <= 250 * 3;
+        && num(request.resource.data, 'totalStars') <= 1000 * 3;
 
       // un invité (compte anonyme) qui rejoint un compte Google existant retire son entrée du classement
       allow delete: if isOwner(uid) && request.auth.token.firebase.sign_in_provider == 'anonymous';
@@ -43,7 +43,7 @@ service cloud.firestore {
       match /progress/{level} {
         allow read: if isOwner(uid);
         allow create, update: if isOwner(uid)
-          && level.matches('^[0-9]+$') && int(level) >= 1 && int(level) <= 250
+          && level.matches('^[0-9]+$') && int(level) >= 1 && int(level) <= 1000
           && request.resource.data.keys().hasOnly(['level', 'bestScore', 'stars', 'ballsLeft', 'attempts', 'wins', 'completed', 'updatedAt'])
           && request.resource.data.level == int(level)
           && request.resource.data.bestScore is int && request.resource.data.bestScore >= 0 && request.resource.data.bestScore <= 220

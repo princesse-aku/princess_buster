@@ -1,9 +1,9 @@
-// Génère public/levels/levelNNN.json (250 niveaux) + index.json  (node tools/generate-levels.js)
+// Génère public/levels/levelNNN.json (1000 niveaux) + index.json  (node tools/generate-levels.js)
 // Les niveaux sont ensuite éditables à la main : ce sont de simples fichiers JSON.
 const fs = require('fs');
 const path = require('path');
 
-const TOTAL = 250;
+const TOTAL = 1000;
 
 const TECHS = [
   ['html5', 'HTML5', '#e44d26'], ['css3', 'CSS3', '#2965f1'], ['sass', 'Sass', '#cc6699'], ['bootstrap', 'Bootstrap', '#7952b3'],

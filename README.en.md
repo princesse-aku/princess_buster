@@ -51,7 +51,7 @@ On first launch: splash screen, terms, then **Sign in with Google** (to save you
 
 ## Features
 
-- 🎯 **250 levels** in JSON files, **50 technologies** (including AI logos: ChatGPT, Claude, Gemini, Grok, Mistral…) unlocked step by step
+- 🎯 **1000 levels** in JSON files, **50 technologies** (including AI logos: ChatGPT, Claude, Gemini, Grok, Mistral…) unlocked step by step
 - 🎨 **12 in-game backgrounds** that change from level to level
 - 🏙️ **Illustrated home screen**: a full-screen futuristic city that adapts to every resolution, with the player's cup and a pile of cubes in the middle
 - 💥 **Physical collapses**: pieces ejected sideways or backwards, chains of falls, colored fragments on the ground (Matter.js)
@@ -85,7 +85,7 @@ npm start
 Open <http://localhost:3000>.
 
 ```bash
-npm test          # validates the 250 levels
+npm test          # validates the 1000 levels
 npm run levels    # regenerates the levels (overwrites public/levels)
 ```
 
