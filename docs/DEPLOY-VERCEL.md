@@ -1,4 +1,4 @@
-# Déployer Princess Buster sur Vercel
+# Déployer PBuster sur Vercel
 
 Le jeu est un **site statique** : tout est dans le dossier `public/`. Vercel le sert tel quel (CDN mondial, HTTPS, déploiement automatique à chaque `git push`). Aucun serveur Node n'est nécessaire.
 

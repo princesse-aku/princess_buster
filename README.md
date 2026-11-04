@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="public/assets/logo.png" alt="Princess Buster" width="200">
+<img src="public/assets/logo.png" alt="PBuster" width="200">
 
-# Princess Buster
+# PBuster
 
 **Fais tomber toutes les technos !**
 Un jeu de tir en 2.5D où tu fais s'effondrer des piles de cubes de langages et de frameworks de programmation, avec un nombre de balles limité.
@@ -20,7 +20,7 @@ Un jeu de tir en 2.5D où tu fais s'effondrer des piles de cubes de langages et 
 </div>
 
 <p align="center">
-  <img src="docs/promo/princess-buster-promo.png?v=2" alt="Princess Buster : fais tomber toutes les technos" width="100%">
+  <img src="docs/promo/princess-buster-promo.png?v=2" alt="PBuster : fais tomber toutes les technos" width="100%">
 </p>
 
 <p align="center">
@@ -264,7 +264,7 @@ Lis le [guide de contribution](CONTRIBUTING.md) et le [code de conduite](CODE_OF
 ## Licence et crédits
 
 - Code : [licence MIT](LICENSE) © 2026 princesse-aku
-- Le **logo « Princess Buster »**, les **avatars** et l'**illustration d'accueil** ne sont **pas** couverts par la licence MIT : tous droits réservés à l'auteur du projet
+- Le **logo « PBuster »**, les **avatars** et l'**illustration d'accueil** ne sont **pas** couverts par la licence MIT : tous droits réservés à l'auteur du projet
 - Logos des technologies : [Devicon](https://devicon.dev) (MIT) et logos d'IA : [Simple Icons](https://simpleicons.org) (CC0) ; le logo de Grok est un dessin original évoquant la marque ; le logo de PHP est celui du projet PHP. Les marques appartiennent à leurs propriétaires respectifs
 - Physique : [Matter.js](https://brm.io/matter-js/) (MIT)
 - Inspiration de gameplay : les jeux de tir de cubes en piles pour mobile. Aucun asset de ces jeux n'est utilisé ici

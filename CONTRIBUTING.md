@@ -1,6 +1,6 @@
-# Contribuer à Princess Buster
+# Contribuer à PBuster
 
-Merci de t'intéresser à Princess Buster ! Ce guide explique comment proposer des corrections, des niveaux, des technologies ou des fonctionnalités. Tout le monde est le bienvenu, débutant ou expérimenté.
+Merci de t'intéresser à PBuster ! Ce guide explique comment proposer des corrections, des niveaux, des technologies ou des fonctionnalités. Tout le monde est le bienvenu, débutant ou expérimenté.
 
 En participant, tu acceptes le [code de conduite](CODE_OF_CONDUCT.md).
 
@@ -131,7 +131,7 @@ Si tu ajoutes un outil ou un script, documente-le dans le README.
 - N'ajoute **que** des fichiers que tu as créés ou dont la licence autorise la redistribution sous une licence compatible avec MIT (CC0, CC BY, MIT…). Indique la **source et la licence** dans la description de la PR.
 - N'ajoute **aucun asset** extrait d'autres jeux (graphismes, sons, musiques, captures).
 - Pas d'image de personne réelle sans son accord écrit.
-- Le logo « Princess Buster » reste la propriété de l'auteur du projet (voir [LICENSE](LICENSE)) : ne le modifie pas et ne le réutilise pas dans un autre projet sans accord.
+- Le logo « PBuster » reste la propriété de l'auteur du projet (voir [LICENSE](LICENSE)) : ne le modifie pas et ne le réutilise pas dans un autre projet sans accord.
 - Garde les fichiers légers : SVG ou WebP pour les images, et évite les fichiers audio volumineux (le son est actuellement synthétisé).
 
 ## Pull requests et revue
@@ -155,4 +155,4 @@ Pour un bug, indique : le niveau, les étapes pour reproduire, ce que tu attenda
 
 En ouvrant une pull request, tu acceptes que ta contribution soit publiée sous la [licence MIT](LICENSE) du projet (à l'exception des éléments réservés mentionnés dans ce fichier de licence), et tu confirmes avoir le droit de la partager.
 
-Merci de faire grandir Princess Buster ! 👑
+Merci de faire grandir PBuster ! 👑

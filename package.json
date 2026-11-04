@@ -1,7 +1,7 @@
 {
   "name": "princess-buster",
   "version": "0.1.0",
-  "description": "Princess Buster - jeu de tir sur des piles de cubes de langages et frameworks de programmation (web, bientôt Tauri).",
+  "description": "PBuster - jeu de tir sur des piles de cubes de langages et frameworks de programmation (web, bientôt Tauri).",
   "private": true,
   "license": "MIT",
   "author": "princesse-aku",

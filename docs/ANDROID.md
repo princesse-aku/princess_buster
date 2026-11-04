@@ -1,6 +1,6 @@
 # Compiler l'APK Android (Tauri v2)
 
-Princess Buster utilise [Tauri v2](https://tauri.app) pour produire l'application Android (et desktop). Le jeu reste la page web de `public/` ; Tauri l'embarque dans une WebView et fournit une **vraie base SQLite locale** via `tauri-plugin-sql` (mêmes tables `players` / `progress` que le serveur de test, voir `public/js/storage.js`).
+PBuster utilise [Tauri v2](https://tauri.app) pour produire l'application Android (et desktop). Le jeu reste la page web de `public/` ; Tauri l'embarque dans une WebView et fournit une **vraie base SQLite locale** via `tauri-plugin-sql` (mêmes tables `players` / `progress` que le serveur de test, voir `public/js/storage.js`).
 
 ## Prérequis (Windows)
 
@@ -43,7 +43,7 @@ Puis un fichier `keystore.properties` à côté (`storeFile`, `keyAlias`, `store
 
 1. Copie l'APK sur le téléphone (ou `adb install dist/PrincessBuster-0.1.0-aarch64.apk`).
 2. Autorise l'installation depuis cette source (« sources inconnues »).
-3. Lance « Princess Buster ».
+3. Lance « PBuster ».
 
 ## Développer sur Android
 

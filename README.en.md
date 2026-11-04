@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="public/assets/logo.png" alt="Princess Buster" width="200">
+<img src="public/assets/logo.png" alt="PBuster" width="200">
 
-# Princess Buster
+# PBuster
 
 **Bring down all the techs!**
 A 2.5D shooting game where you make stacks of programming-language and framework cubes collapse, with a limited number of balls.
@@ -20,7 +20,7 @@ A 2.5D shooting game where you make stacks of programming-language and framework
 </div>
 
 <p align="center">
-  <img src="docs/promo/princess-buster-promo.png?v=2" alt="Princess Buster" width="100%">
+  <img src="docs/promo/princess-buster-promo.png?v=2" alt="PBuster" width="100%">
 </p>
 
 <p align="center">
@@ -137,7 +137,7 @@ Contributions are welcome: bugs, levels, technologies, translations, accessibili
 ## License and credits
 
 - Code: [MIT license](LICENSE) © 2026 princesse-aku
-- The **"Princess Buster" logo**, the **avatars** and the **home-screen illustration** are **not** covered by the MIT license: all rights reserved to the project author
+- The **"PBuster" logo**, the **avatars** and the **home-screen illustration** are **not** covered by the MIT license: all rights reserved to the project author
 - Technology logos: [Devicon](https://devicon.dev) (MIT) and AI logos: [Simple Icons](https://simpleicons.org) (CC0); the Grok logo is an original drawing evoking the brand; the PHP logo is the PHP project's. Trademarks belong to their respective owners
 - Physics: [Matter.js](https://brm.io/matter-js/) (MIT)
 - Gameplay inspiration: mobile cube-stack shooters. No asset from those games is used here

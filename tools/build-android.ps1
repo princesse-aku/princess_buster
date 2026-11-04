@@ -1,4 +1,4 @@
-# Compile l'APK Android de Princess Buster avec Tauri, l'aligne et le signe.
+# Compile l'APK Android de PBuster avec Tauri, l'aligne et le signe.
 #   powershell -ExecutionPolicy Bypass -File tools/build-android.ps1 [-Target aarch64|armv7|x86_64|i686|all]
 #
 # Prérequis (voir docs/ANDROID.md) : Rust + cibles Android, Android SDK/NDK, JDK 17+ (21 conseillé), npm install.
