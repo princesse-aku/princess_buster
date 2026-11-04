@@ -25,7 +25,7 @@ powershell -ExecutionPolicy Bypass -File tools/build-android.ps1 -Target all   #
 ```
 
 Le script compile, aligne (`zipalign`), **signe** (`apksigner`) et dépose l'APK dans `dist/` (ignoré par git) :
-`dist/PrincessBuster-<version>-aarch64.apk`.
+`dist/PBuster-<version>-aarch64.apk`.
 
 Équivalent manuel : `npx tauri android build --apk --target aarch64`, puis signature de l'APK « unsigned » (Android refuse d'installer un APK non signé).
 
@@ -41,7 +41,7 @@ Puis un fichier `keystore.properties` à côté (`storeFile`, `keyAlias`, `store
 
 ## Installer sur un téléphone
 
-1. Copie l'APK sur le téléphone (ou `adb install dist/PrincessBuster-0.1.0-aarch64.apk`).
+1. Copie l'APK sur le téléphone (ou `adb install dist/PBuster-0.1.0-aarch64.apk`).
 2. Autorise l'installation depuis cette source (« sources inconnues »).
 3. Lance « PBuster ».
 

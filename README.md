@@ -7,9 +7,9 @@
 **Fais tomber toutes les technos !**
 Un jeu de tir en 2.5D où tu fais s'effondrer des piles de cubes de langages et de frameworks de programmation, avec un nombre de balles limité.
 
-[**▶ Jouer en ligne**](https://princess-buster.vercel.app/) · [**⬇ Télécharger l'APK**](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) · [Installer sur mobile](#-installer-sur-mobile) · [Contribuer](CONTRIBUTING.md)
+[**▶ Jouer en ligne**](https://princess-buster.vercel.app/) · [**⬇ Télécharger l'APK**](https://github.com/princesse-aku/PBuster/releases/download/v0.1.0/PBuster-0.1.0-aarch64.apk) · [Installer sur mobile](#-installer-sur-mobile) · [Contribuer](CONTRIBUTING.md)
 
-[![CI](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml/badge.svg)](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml)
+[![CI](https://github.com/princesse-aku/PBuster/actions/workflows/ci.yml/badge.svg)](https://github.com/princesse-aku/PBuster/actions/workflows/ci.yml)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-ffd23f.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%E2%89%A5%2022.5-3a3fe0.svg)
 ![Sans dépendance npm](https://img.shields.io/badge/d%C3%A9pendances%20npm-0-ff3fa4.svg)
@@ -63,7 +63,7 @@ Tu **gagnes** quand la table est vide, tu **perds** quand tu n'as plus de balles
 
 - ▶️ **En ligne** : <https://princess-buster.vercel.app/>, sur téléphone, tablette et ordinateur.
 - 📱 **<a id="-installer-sur-mobile"></a>Installer sur mobile (PWA)** : ouvre le jeu dans Chrome (Android) → menu ⋮ → **Installer l'application** ; sur iPhone (Safari) → Partager → **Sur l'écran d'accueil**. Le jeu s'ouvre alors en plein écran comme une vraie application, sans APK à télécharger.
-- 🤖 **APK Android** : [PrincessBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) (téléphones arm64, depuis la page [Releases](https://github.com/princesse-aku/princess_buster/releases)). Autorise l'installation depuis ton navigateur. La connexion Google n'y est pas disponible : pour le classement, utilise la version en ligne ou la PWA.
+- 🤖 **APK Android** : [PBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/PBuster/releases/download/v0.1.0/PBuster-0.1.0-aarch64.apk) (téléphones arm64, depuis la page [Releases](https://github.com/princesse-aku/PBuster/releases)). Autorise l'installation depuis ton navigateur. La connexion Google n'y est pas disponible : pour le classement, utilise la version en ligne ou la PWA.
 - 💻 **En local** : voir [Démarrage rapide](#démarrage-rapide-développeurs).
 
 Au premier lancement : écran de démarrage, conditions d'utilisation, puis **connexion avec Google** (pour sauvegarder ta progression dans le cloud et apparaître dans le classement) ou **« Jouer sans compte »**. Tu peux te connecter plus tard depuis ton profil.
@@ -98,8 +98,8 @@ Au premier lancement : écran de démarrage, conditions d'utilisation, puis **co
 Prérequis : [Node.js](https://nodejs.org) **22.5 ou plus** (module `node:sqlite` intégré).
 
 ```bash
-git clone https://github.com/princesse-aku/princess_buster.git
-cd princess_buster
+git clone https://github.com/princesse-aku/PBuster.git
+cd PBuster
 npm start
 ```
 
@@ -207,7 +207,7 @@ API du serveur local :
 ## Architecture du projet
 
 ```
-princess_buster/
+PBuster/
 ├── public/                    # le jeu (statique)
 │   ├── index.html             # écrans, SEO, accueil
 │   ├── css/                   # style.css, home.css, home2.css
@@ -254,7 +254,7 @@ princess_buster/
 - [ ] Traductions (le jeu est en français)
 - [ ] Éditeur de niveaux visuel
 
-Une idée ? Ouvre une [issue](https://github.com/princesse-aku/princess_buster/issues/new/choose).
+Une idée ? Ouvre une [issue](https://github.com/princesse-aku/PBuster/issues/new/choose).
 
 ## Contribuer
 

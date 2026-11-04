@@ -1,17 +1,17 @@
 {
-  "name": "princess-buster",
+  "name": "pbuster",
   "version": "0.1.0",
   "description": "PBuster - jeu de tir sur des piles de cubes de langages et frameworks de programmation (web, bientôt Tauri).",
   "private": true,
   "license": "MIT",
   "author": "princesse-aku",
-  "homepage": "https://github.com/princesse-aku/princess_buster#readme",
+  "homepage": "https://github.com/princesse-aku/PBuster#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/princesse-aku/princess_buster.git"
+    "url": "git+https://github.com/princesse-aku/PBuster.git"
   },
   "bugs": {
-    "url": "https://github.com/princesse-aku/princess_buster/issues"
+    "url": "https://github.com/princesse-aku/PBuster/issues"
   },
   "keywords": [
     "game",

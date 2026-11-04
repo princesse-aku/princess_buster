@@ -7,9 +7,9 @@
 **Bring down all the techs!**
 A 2.5D shooting game where you make stacks of programming-language and framework cubes collapse, with a limited number of balls.
 
-[**▶ Play online**](https://princess-buster.vercel.app/) · [**⬇ Download the APK**](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) · [Install on mobile](#-install-on-mobile) · [Contribute](CONTRIBUTING.md)
+[**▶ Play online**](https://princess-buster.vercel.app/) · [**⬇ Download the APK**](https://github.com/princesse-aku/PBuster/releases/download/v0.1.0/PBuster-0.1.0-aarch64.apk) · [Install on mobile](#-install-on-mobile) · [Contribute](CONTRIBUTING.md)
 
-[![CI](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml/badge.svg)](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml)
+[![CI](https://github.com/princesse-aku/PBuster/actions/workflows/ci.yml/badge.svg)](https://github.com/princesse-aku/PBuster/actions/workflows/ci.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-ffd23f.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%E2%89%A5%2022.5-3a3fe0.svg)
 ![No npm dependencies](https://img.shields.io/badge/npm%20dependencies-0-ff3fa4.svg)
@@ -44,7 +44,7 @@ You **win** when the table is empty and **lose** when you run out of balls while
 
 - ▶️ **Online**: <https://princess-buster.vercel.app/> on phone, tablet and desktop.
 - 📱 **<a id="-install-on-mobile"></a>Install on mobile (PWA)**: open the game in Chrome (Android) → ⋮ menu → **Install app**; on iPhone (Safari) → Share → **Add to Home Screen**. It then runs full screen like a native app, no APK needed.
-- 🤖 **Android APK**: [PrincessBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) (arm64 phones, from the [Releases](https://github.com/princesse-aku/princess_buster/releases) page). Allow installation from your browser. Google sign-in is not available in the APK: use the online version or the PWA for the leaderboard.
+- 🤖 **Android APK**: [PBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/PBuster/releases/download/v0.1.0/PBuster-0.1.0-aarch64.apk) (arm64 phones, from the [Releases](https://github.com/princesse-aku/PBuster/releases) page). Allow installation from your browser. Google sign-in is not available in the APK: use the online version or the PWA for the leaderboard.
 - 💻 **Locally**: see [Quick start](#quick-start-developers).
 
 On first launch: splash screen, terms, then **Sign in with Google** (to save your progress in the cloud and appear on the leaderboard) or **Play without an account**. You can sign in later from your profile.
@@ -77,8 +77,8 @@ On first launch: splash screen, terms, then **Sign in with Google** (to save you
 Requires [Node.js](https://nodejs.org) **22.5+** (built-in `node:sqlite`).
 
 ```bash
-git clone https://github.com/princesse-aku/princess_buster.git
-cd princess_buster
+git clone https://github.com/princesse-aku/PBuster.git
+cd PBuster
 npm start
 ```
 

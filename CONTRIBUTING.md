@@ -37,8 +37,8 @@ Prérequis : [Node.js](https://nodejs.org) **22.5 ou plus**, Git et un navigateu
 
 ```bash
 # 1. Fork le dépôt sur GitHub, puis clone ton fork
-git clone https://github.com/<ton-compte>/princess_buster.git
-cd princess_buster
+git clone https://github.com/<ton-compte>/PBuster.git
+cd PBuster
 
 # 2. Lance le jeu
 npm start            # http://localhost:3000
@@ -58,7 +58,7 @@ Les fichiers de `public/` sont servis tels quels (sans cache) : modifie, puis re
 
 ## Workflow Git
 
-1. Mets ton fork à jour : `git remote add upstream https://github.com/princesse-aku/princess_buster.git` puis `git pull upstream main`.
+1. Mets ton fork à jour : `git remote add upstream https://github.com/princesse-aku/PBuster.git` puis `git pull upstream main`.
 2. Crée une branche **à partir de `main`**, avec un nom parlant :
    - `fix/canon-visee-tactile`
    - `feat/piece-explosive`
@@ -145,7 +145,7 @@ Si tu ajoutes un outil ou un script, documente-le dans le README.
 
 ## Signaler un bug ou proposer une idée
 
-Utilise les [modèles d'issues](https://github.com/princesse-aku/princess_buster/issues/new/choose). Avant de créer une issue, cherche si elle n'existe pas déjà.
+Utilise les [modèles d'issues](https://github.com/princesse-aku/PBuster/issues/new/choose). Avant de créer une issue, cherche si elle n'existe pas déjà.
 
 Pour un bug, indique : le niveau, les étapes pour reproduire, ce que tu attendais, l'appareil/OS/navigateur, l'orientation de l'écran, et une capture ou une vidéo si possible.
 
