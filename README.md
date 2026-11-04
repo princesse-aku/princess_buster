@@ -75,6 +75,8 @@ Au premier lancement : écran de démarrage, conditions d'utilisation, puis **co
 - 🏙️ **Accueil illustré** : une ville futuriste plein écran qui s'adapte à toutes les résolutions (portrait, paysage, tablette), avec la tasse du joueur et son tas de cubes au centre
 - 🧱 **Pièces de formats variés** : carrés, rectangles larges ou hauts, 2×2, 3×1, 3×2
 - 💥 **Effondrements physiques** : pièces éjectées sur le côté ou vers le fond, chaînes de chutes, éclats colorés au sol (moteur Matter.js)
+- 💥 **Impact explosif** : boule de feu et souffle qui repousse les pièces voisines ; les pièces envoyées derrière la table partent en arc, rapetissent et se brisent sur l'herbe
+- 🛢️ **Tambours et tours** : pièces cylindriques (barils) et, à partir du niveau 251, des tours en piliers, châteaux et flèches
 - 🔒 **Aucun cube suspendu dans le vide** : chaque pièce repose sur une autre ou sur la table (vérifié par `npm test`)
 - 🎁 **Bonus** : **tir triple** (dès le niveau 3) et **super balle** (dès le niveau 10), un de chaque par niveau
 - 👤 **Profils** : 15 avatars illustrés, nom modifiable, statistiques ; un avatar par défaut est attribué à la première connexion

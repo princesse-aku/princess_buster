@@ -61,7 +61,7 @@ const Game = (() => {
   }
 
   let techs = {};            // key -> { name, color, img }
-  let engine, platform, cubes, shots, ghosts, particles, debris;
+  let engine, platform, cubes, shots, ghosts, particles, debris, blasts;
   let platformW = 300, loopId = 0, puffs = [];
   let level = null, ballsLeft = 0, running = false, finished = false;
   let cannonX = W / 2;                     // canon fixe au centre
@@ -142,7 +142,7 @@ const Game = (() => {
     level = lvl;
     engine = Engine.create({ enableSleeping: true, positionIterations: 12, velocityIterations: 8 });
     engine.gravity.y = 1.1;
-    cubes = []; shots = []; ghosts = []; particles = []; debris = []; puffs = []; sprites.clear();
+    cubes = []; shots = []; ghosts = []; particles = []; debris = []; puffs = []; blasts = []; sprites.clear();
     ballsLeft = ballsFor(lvl); lastShot = -1000; finished = false; settleTimer = 0; aiming = false; shake = 0; flash = 0; comboCount = 0;
     aim = 0; target = null; powers = { triple: 1, super: 1 }; armed = null;
 
@@ -165,7 +165,7 @@ const Game = (() => {
         density: 0.0025 * (lvl.cubeWeight || 1), sleepThreshold: 40, slop: 0.04,
       });
       body.tech = techs[p.tech]; body.isCube = true;
-      body.pw = p.w; body.ph = p.h;
+      body.pw = p.w; body.ph = p.h; body.kind = p.kind || '';
       body.pmass = Math.sqrt(p.w * p.h) * (lvl.cubeWeight || 1);       // masse « utile » : racine de la surface x poids du niveau
       setLayer(body, Math.min(1, p.layer || 0));   // 0 = devant ; 1 = derrière (jamais plus de 2 rangées)
       body.ds = body.z; body.dmg = 0; body.kick = 0;
@@ -260,6 +260,16 @@ const Game = (() => {
     if (!c) { burst(s.tx, s.ty, '#ffffff', 6); callbacks.sfx && callbacks.sfx('hit'); return; }
     burst(s.tx, s.ty, c.tech.color, 14);
     callbacks.sfx && callbacks.sfx('hit');
+    blasts.push({ x: s.tx, y: s.ty, life: 1, big: s.power > 1 });             // boule de feu à l'impact
+    for (const o of cubes) {                                                  // souffle : les pièces voisines de devant sont repoussées
+      if (o === c || o.layer !== 0) continue;
+      const dx = o.position.x - s.tx, dy = visY(o) - s.ty, d = Math.hypot(dx, dy), R = CUBE * (s.power > 1 ? 2.6 : 1.9);
+      if (d > R || d < 1) continue;
+      const f = (1 - d / R) * (s.power > 1 ? 1.6 : 1) / o.pmass;
+      Sleeping.set(o, false); o.kick = Math.max(o.kick, 0.6);
+      Body.setVelocity(o, { x: o.velocity.x + dx / d * 2.4 * f, y: o.velocity.y - (1.2 + 1.4 * f) * f });
+      Body.setAngularVelocity(o, o.angularVelocity + (dx / d) * 0.03 * f);
+    }
     push(c, s, 1);
     if (s.power > 1) for (const o of cubes) {                       // super balle : les voisines sont aussi poussées
       if (o !== c && o.layer === c.layer && Math.hypot(o.position.x - c.position.x, visY(o) - visY(c)) < CUBE * 1.5) push(o, s, 0.6);
@@ -308,7 +318,7 @@ const Game = (() => {
   // la pièce quitte la table par l'arrière : elle continue son vol (fantôme dessiné derrière la table) et se brise au sol
   function sendBack(c, ux, k) {
     ghosts.push({ tech: c.tech, pw: c.pw, ph: c.ph, x: c.position.x, y: c.position.y, z: slide(c), vz: 2.2 + 1.6 * k,
-      vx: c.velocity.x * 0.3 + ux * 2.2 * k, vy: -(3 + 2 * k) / Math.sqrt(c.pmass), rot: c.angle, vr: (Math.random() - .5) * 0.12 + ux * 0.05, life: 1 });
+      vx: c.velocity.x * 0.3 + ux * 2.2 * k + (Math.random() < 0.5 ? -1 : 1) * (0.8 + Math.random() * 2.2) * k, vy: -(4 + 2.6 * k) / Math.sqrt(c.pmass), kind: c.kind, rot: c.angle, vr: (Math.random() - .5) * 0.12 + ux * 0.05, life: 1 });
     removeCube(c);
   }
 
@@ -397,10 +407,11 @@ const Game = (() => {
       }
     }
     for (let i = debris.length - 1; i >= 0; i--) {
-      const d = debris[i]; d.x += d.vx; d.y += d.vy; d.vy += 0.5; d.rot += d.vr; d.life -= 0.016;
+      const d = debris[i]; d.x += d.vx; d.y += d.vy; d.vy += 0.5; d.rot += d.vr; d.life -= d.back ? 0.011 : 0.016;
       if (d.y > d.ground && d.vy > 0) { d.y = d.ground; d.vy *= -0.38; d.vx *= 0.7; d.vr *= 0.6; }
       if (d.life <= 0) debris.splice(i, 1);
     }
+    for (let i = blasts.length - 1; i >= 0; i--) { blasts[i].life -= 0.07; if (blasts[i].life <= 0) blasts.splice(i, 1); }
     for (let i = puffs.length - 1; i >= 0; i--) { puffs[i].r += 1.3; puffs[i].life -= 0.05; if (puffs[i].life <= 0) puffs.splice(i, 1); }
     for (let i = particles.length - 1; i >= 0; i--) {
       const p = particles[i]; p.x += p.vx; p.y += p.vy; p.vy += 0.22; p.life -= 0.03;
@@ -447,16 +458,22 @@ const Game = (() => {
     const sx = (Math.random() - .5) * shake, sy = (Math.random() - .5) * shake;
     ctx.save(); ctx.translate(sx, sy);
     drawBackground();
-    ghosts.forEach((g) => drawPiece(g.tech, g.pw, g.ph, g.x, g.y - g.z * DEPTH_Y, g.rot, depthScale(g.z), true));   // tombent DERRIÈRE la table
+    ghosts.forEach((g) => drawPiece(g.tech, g.pw, g.ph, g.x, g.y - g.z * DEPTH_Y, g.rot, depthScale(g.z), true, g.kind));   // tombent DERRIÈRE la table
     drawShards(true);
     drawPedestal();
     // rangée arrière d'abord, puis de bas en haut (le dessus d'une pièce est caché par celle posée dessus)
-    [...cubes].sort((a, b) => b.ds - a.ds || b.position.y - a.position.y).forEach((c) => drawPiece(c.tech, c.pw, c.ph, c.position.x, visY(c), c.angle, depthScale(c.ds), c.ds > LAYER_Z * 0.5));
+    [...cubes].sort((a, b) => b.ds - a.ds || b.position.y - a.position.y).forEach((c) => drawPiece(c.tech, c.pw, c.ph, c.position.x, visY(c), c.angle, depthScale(c.ds), c.ds > LAYER_Z * 0.5, c.kind));
     drawShards(false);
     drawAimGuide();
     shots.forEach(drawShot);
     drawCannon();
     ctx.globalCompositeOperation = 'lighter';
+    blasts.forEach((b) => {                                                    // boule de feu : disque lumineux qui grossit puis s'éteint
+      const k = 1 - b.life, r = (b.big ? 46 : 32) + k * (b.big ? 70 : 52);
+      const g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, r);
+      g.addColorStop(0, `rgba(255,255,230,${b.life})`); g.addColorStop(0.35, `rgba(255,200,60,${b.life * 0.9})`); g.addColorStop(0.7, `rgba(255,110,20,${b.life * 0.55})`); g.addColorStop(1, 'rgba(255,60,0,0)');
+      ctx.globalAlpha = 1; ctx.fillStyle = g; ctx.beginPath(); ctx.arc(b.x, b.y, r, 0, 7); ctx.fill();
+    });
     particles.forEach((p) => {
       ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = p.color;
       if (p.star) { drawStar(p.x, p.y, p.size * 1.6, p.life * 6); ctx.fill(); } else ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
@@ -672,8 +689,8 @@ const Game = (() => {
   // Pièce pw x ph (en cubes) : boîte brillante (face avant bombée, reflet), logo blanc.
   // Le rendu est fait une fois par (techno, format, taille) dans un sprite hors écran : chaque image ne fait qu'un drawImage.
   const sprites = new Map();
-  function pieceSprite(t, pw, ph, back) {
-    const key = t.key + '|' + pw + '|' + ph + '|' + CUBE + '|' + DPR.toFixed(2) + (back ? '|b' : '');
+  function pieceSprite(t, pw, ph, back, kind) {
+    const key = t.key + '|' + pw + '|' + ph + '|' + CUBE + '|' + DPR.toFixed(2) + (back ? '|b' : '') + (kind ? '|' + kind : '');
     let sp = sprites.get(key);
     if (sp) return sp;
     const w = pw * CUBE - 2, h = ph * CUBE - 2, d = 0, pad = 4;   // pas de dessus visible : on le prendrait pour une 2e rangée
@@ -682,7 +699,7 @@ const Game = (() => {
     const prev = ctx; ctx = cv.getContext('2d');
     try {
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.translate(cw / 2, pad + d + h / 2);
-      paintBox(t, pw, w, h, d);
+      if (kind === 'cyl') paintCyl(t, pw, w, h); else paintBox(t, pw, w, h, d);
       if (back) { ctx.globalCompositeOperation = 'source-atop'; ctx.fillStyle = 'rgba(16,12,60,.26)'; ctx.fillRect(-cw, -chh, cw * 2, chh * 2); ctx.globalCompositeOperation = 'source-over'; }
     } finally { ctx = prev; }
     sp = { cv, cw, chh, oy: pad + d + h / 2 };
@@ -724,9 +741,36 @@ const Game = (() => {
     }
   }
 
-  function drawPiece(t, pw, ph, x, y, angle, sc, back) {
+  // Pièce « tambour » : cylindre debout (dessus elliptique, bandes, reflet vertical) au lieu d'une boîte
+  function paintCyl(t, pw, w, h) {
+    const base = t.base || t.color, dark = tintColor(base, -0.55), hw = w / 2, ry = Math.min(w * 0.2, h * 0.18), top = -h / 2 + ry, bot = h / 2 - ry;
+    const body = () => { ctx.beginPath(); ctx.moveTo(-hw, top); ctx.ellipse(0, top, hw, ry, 0, Math.PI, 0); ctx.lineTo(hw, bot); ctx.ellipse(0, bot, hw, ry, 0, 0, Math.PI); ctx.closePath(); };
+    ctx.save(); ctx.translate(2, 4); body(); ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.fill(); ctx.restore();
+    body(); ctx.lineWidth = 3.2; ctx.lineJoin = 'round'; ctx.strokeStyle = dark; ctx.stroke();
+    const g = ctx.createLinearGradient(-hw, 0, hw, 0);
+    g.addColorStop(0, tintColor(base, -0.38)); g.addColorStop(0.2, tintColor(base, 0.32)); g.addColorStop(0.5, base); g.addColorStop(1, tintColor(base, -0.5));
+    body(); ctx.fillStyle = g; ctx.fill();
+    ctx.save(); body(); ctx.clip();
+    const bands = h > w * 2.2 ? [top + ry * 1.9, (top + bot) / 2, bot - ry * 0.6] : [top + ry * 1.9, bot - ry * 0.6];
+    for (const y of bands) {
+      ctx.lineWidth = Math.max(2.5, CUBE * 0.06); ctx.strokeStyle = tintColor(base, -0.42); ctx.beginPath(); ctx.ellipse(0, y, hw, ry, 0, 0, Math.PI); ctx.stroke();
+      ctx.lineWidth = 1.4; ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.beginPath(); ctx.ellipse(0, y - 2.5, hw - 1, ry, 0, 0.12, Math.PI - 0.12); ctx.stroke();
+    }
+    ctx.restore();
+    ctx.beginPath(); ctx.ellipse(0, top, hw, ry, 0, 0, 7); ctx.fillStyle = tintColor(base, 0.4); ctx.fill(); ctx.lineWidth = 2.4; ctx.strokeStyle = dark; ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(0, top, hw * 0.62, ry * 0.58, 0, 0, 7); ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.lineWidth = 1.6; ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,.3)'; ctx.beginPath(); ctx.roundRect(-hw * 0.62, top + ry * 0.7, hw * 0.2, Math.max(4, bot - top - ry * 1.2), 3); ctx.fill();
+    const ls = Math.min(w * 0.78, (bot - top) * 0.7, h * 0.58), icon = t.white || t.img;
+    if (icon && icon.complete !== false) {
+      ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowOffsetY = Math.max(1.5, CUBE * 0.03); ctx.shadowBlur = 3;
+      ctx.drawImage(icon, -ls / 2, (top + bot) / 2 - ls / 2 + ry * 0.4, ls, ls);
+      ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+    }
+  }
+
+  function drawPiece(t, pw, ph, x, y, angle, sc, back, kind) {
     if (!t) return;
-    const sp = pieceSprite(t, pw, ph, back);
+    const sp = pieceSprite(t, pw, ph, back, kind);
     ctx.save(); ctx.translate(x, y); if (angle) ctx.rotate(angle); if (sc !== 1) ctx.scale(sc, sc);
     ctx.drawImage(sp.cv, -sp.cw / 2, -sp.oy, sp.cw, sp.chh);
     ctx.restore();

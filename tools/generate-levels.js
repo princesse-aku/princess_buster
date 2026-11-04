@@ -78,6 +78,17 @@ const shapes = {
 };
 const SHAPE_NAMES = Object.keys(shapes);
 
+// Formes « tours » (niveaux 251 et plus) : piliers, châteaux, flèches. Séparées de `shapes` pour ne pas modifier les niveaux 1 à 250.
+const towerShapes = {
+  pillars: (w, h) => fromHeights(Array.from({ length: w }, (_, c) => (c % 2 === 0 ? h : 0)), h),
+  twinPillars: (w, h) => fromHeights(Array.from({ length: w }, (_, c) => (c >= 1 && c <= 2) || (c >= w - 3 && c <= w - 2) ? h : 1), h),
+  castle: (w, h) => fromHeights(Array.from({ length: w }, (_, c) => {
+    const d = Math.abs(c - (w - 1) / 2), base = d < 1 ? h : d <= 2 ? Math.ceil(h * 0.75) : Math.ceil(h * 0.55);
+    return clamp(base - (c % 2 ? 1 : 0), 1, h);
+  }), h),
+  spire: (w, h) => fromHeights(Array.from({ length: w }, (_, c) => clamp(h - Math.floor(Math.abs(c - (w - 1) / 2) * 1.6), 1, h)), h),
+};
+
 // niveaux 1..20 : plan d'origine, soigneusement calibré
 const PLAN = [
   ['wall', 3, 3], ['pyramid', 5, 3], ['wall', 4, 4], ['columns', 5, 4], ['stairs', 5, 5],
@@ -149,6 +160,7 @@ for (const f of fs.readdirSync(outDir)) if (/^level\d+\.json$/.test(f)) fs.unlin
 const index = [];
 
 const DENSE = SHAPE_NAMES.filter((n) => !['tower', 'tower2', 'islands'].includes(n));
+const DENSE_TOWERS = DENSE.concat(Object.keys(towerShapes));      // niveaux 251+ : on ajoute les formes de tours
 
 for (let id = 1; id <= TOTAL; id++) {
   let level, shape, w, h, back, pieces, balls, theme, pool, newTech;
@@ -163,11 +175,11 @@ for (let id = 1; id <= TOTAL; id++) {
   // forme et taille
   if (id <= PLAN.length) [shape, w, h] = PLAN[id - 1];
   else {
-    shape = DENSE[(id * 7 + Math.floor(rand() * 5) + attempt) % DENSE.length];
+    const pool_ = id > 250 ? DENSE_TOWERS : DENSE; shape = pool_[(id * 7 + Math.floor(rand() * 5) + attempt) % pool_.length];
     w = clamp(Math.round(4 + id / 30 + (rand() * 2 - 1)), 4, 9);
     h = clamp(Math.round(3.5 + id / 28 + (rand() * 2 - 1)), 4, 8);
   }
-  const mask = dropToSupport(shapes[shape](w, h, rand));
+  const mask = dropToSupport((shapes[shape] || towerShapes[shape])(w, h, rand));
   const cols = Math.max(...mask.map((r) => r.length));
   const pick = () => (rand() < 0.3 ? focus : pool[Math.floor(rand() * pool.length)]);
 
@@ -190,6 +202,8 @@ for (let id = 1; id <= TOTAL; id++) {
   if (id >= 6 && (id * 7) % 10 < 6) addLayer(1, id < 12 ? 0.5 : id < 25 ? 0.75 : 1, heights);
   front.forEach((p) => { p.row += rowsTotal - mask.length; });
 
+  // pièces « tambour » (cylindres debout) : purement visuel, décidé sans tirage aléatoire pour ne pas changer les niveaux
+  for (const p of [...front, ...back]) if (id >= 30 && p.w === 1 && (p.col * 7 + p.row * 5 + p.layer * 3 + id * 11) % 3 === 0) p.kind = 'cyl';
   pieces = [...front, ...back];
   pieces.sort((a, b) => a.layer - b.layer || a.row - b.row || a.col - b.col);
   // Une balle ne fait tomber que la pièce visée. Distance parcourue par coup = 14 x 0,8 / (masse x 0,06) avec
