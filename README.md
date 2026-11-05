@@ -76,6 +76,8 @@ Au premier lancement : écran de démarrage, conditions d'utilisation, puis **co
 - 🧱 **Pièces de formats variés** : carrés, rectangles larges ou hauts, 2×2, 3×1, 3×2
 - 💥 **Effondrements physiques** : pièces éjectées sur le côté ou vers le fond, chaînes de chutes, éclats colorés au sol (moteur Matter.js)
 - 💥 **Impact explosif** : boule de feu et souffle qui repousse les pièces voisines ; les pièces envoyées derrière la table partent en arc, rapetissent et se brisent sur l'herbe
+- ⭐ **Pièces spéciales** : **pièce d'or** (+1 balle), **baril explosif** (souffle les pièces proches, en chaîne) et **bloc à flèche** (balaie toute la rangée dans le sens de la flèche)
+- 🔴 **Jauge de balles** agrandie sous le compteur (vert, orange, rouge) et une réserve de balles plus généreuse
 - 🛢️ **Tambours et tours** : pièces cylindriques (barils) et, à partir du niveau 251, des tours en piliers, châteaux et flèches
 - 🔒 **Aucun cube suspendu dans le vide** : chaque pièce repose sur une autre ou sur la table (vérifié par `npm test`)
 - 🎁 **Bonus** : **tir triple** (dès le niveau 3) et **super balle** (dès le niveau 10), un de chaque par niveau

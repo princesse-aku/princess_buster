@@ -62,9 +62,9 @@
   "cols": 9,
   "pieces": [
     {"tech":"bash","layer":0,"col":8,"row":0,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":8,"row":1,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"bash","layer":0,"col":8,"row":1,"w":1,"h":1,"kind":"arrowL"},
     {"tech":"claude","layer":0,"col":8,"row":2,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":0,"row":3,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":0,"row":3,"w":1,"h":1,"kind":"coin"},
     {"tech":"angular","layer":0,"col":7,"row":3,"w":1,"h":1,"kind":"cyl"},
     {"tech":"django","layer":0,"col":8,"row":3,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":0,"row":4,"w":1,"h":1},

@@ -84,15 +84,15 @@
     {"tech":"git","layer":0,"col":2,"row":5,"w":1,"h":1,"kind":"cyl"},
     {"tech":"mysql","layer":0,"col":4,"row":5,"w":1,"h":1},
     {"tech":"html5","layer":0,"col":8,"row":5,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"kotlin","layer":0,"col":0,"row":6,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"bash","layer":0,"col":2,"row":6,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":4,"row":6,"w":1,"h":1},
+    {"tech":"kotlin","layer":0,"col":0,"row":6,"w":1,"h":1,"kind":"arrowR"},
+    {"tech":"bash","layer":0,"col":2,"row":6,"w":1,"h":1,"kind":"bomb"},
+    {"tech":"bash","layer":0,"col":4,"row":6,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"bash","layer":0,"col":6,"row":6,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":8,"row":6,"w":1,"h":1},
     {"tech":"graphql","layer":0,"col":0,"row":7,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":2,"row":7,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":2,"row":7,"w":1,"h":1,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":4,"row":7,"w":1,"h":1,"kind":"cyl"},
     {"tech":"postgresql","layer":0,"col":6,"row":7,"w":1,"h":1},
-    {"tech":"csharp","layer":0,"col":8,"row":7,"w":1,"h":1}
+    {"tech":"csharp","layer":0,"col":8,"row":7,"w":1,"h":1,"kind":"bomb"}
   ]
 }

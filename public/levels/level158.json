@@ -67,11 +67,11 @@
     {"tech":"rust","layer":0,"col":6,"row":5,"w":1,"h":1},
     {"tech":"typescript","layer":0,"col":0,"row":6,"w":1,"h":2},
     {"tech":"claude","layer":0,"col":1,"row":6,"w":2,"h":2},
-    {"tech":"rust","layer":0,"col":3,"row":6,"w":1,"h":1},
+    {"tech":"rust","layer":0,"col":3,"row":6,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"rust","layer":0,"col":4,"row":6,"w":2,"h":2},
     {"tech":"nodejs","layer":0,"col":6,"row":6,"w":1,"h":1},
     {"tech":"rust","layer":0,"col":7,"row":6,"w":1,"h":2},
     {"tech":"rust","layer":0,"col":3,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"rust","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"cyl"}
+    {"tech":"rust","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"arrowL"}
   ]
 }

@@ -78,20 +78,20 @@
     {"tech":"bash","layer":0,"col":4,"row":3,"w":1,"h":1,"kind":"cyl"},
     {"tech":"flutter","layer":0,"col":8,"row":3,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":0,"row":4,"w":1,"h":1},
-    {"tech":"react","layer":0,"col":2,"row":4,"w":1,"h":2,"kind":"cyl"},
+    {"tech":"react","layer":0,"col":2,"row":4,"w":1,"h":2,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":4,"row":4,"w":1,"h":2},
     {"tech":"ruby","layer":0,"col":6,"row":4,"w":1,"h":1},
     {"tech":"cplusplus","layer":0,"col":8,"row":4,"w":1,"h":2,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":0,"row":5,"w":1,"h":1,"kind":"cyl"},
     {"tech":"django","layer":0,"col":6,"row":5,"w":1,"h":1,"kind":"cyl"},
     {"tech":"docker","layer":0,"col":0,"row":6,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":2,"row":6,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":2,"row":6,"w":1,"h":1,"kind":"bomb"},
     {"tech":"swift","layer":0,"col":4,"row":6,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":6,"row":6,"w":1,"h":1},
-    {"tech":"typescript","layer":0,"col":8,"row":6,"w":1,"h":2},
+    {"tech":"typescript","layer":0,"col":8,"row":6,"w":1,"h":2,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":0,"row":7,"w":1,"h":1},
-    {"tech":"java","layer":0,"col":2,"row":7,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"java","layer":0,"col":2,"row":7,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"bash","layer":0,"col":4,"row":7,"w":1,"h":1},
-    {"tech":"python","layer":0,"col":6,"row":7,"w":1,"h":1}
+    {"tech":"python","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"arrowL"}
   ]
 }

@@ -63,12 +63,12 @@
   "pieces": [
     {"tech":"tailwindcss","layer":0,"col":0,"row":0,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":2,"row":0,"w":1,"h":1},
-    {"tech":"openai","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"openai","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"coin"},
     {"tech":"claude","layer":0,"col":6,"row":0,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":8,"row":0,"w":1,"h":1},
     {"tech":"perplexity","layer":0,"col":0,"row":1,"w":1,"h":1},
     {"tech":"ollama","layer":0,"col":2,"row":1,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"graphql","layer":0,"col":4,"row":1,"w":1,"h":1},
+    {"tech":"graphql","layer":0,"col":4,"row":1,"w":1,"h":1,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":6,"row":1,"w":1,"h":1},
     {"tech":"openai","layer":0,"col":8,"row":1,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":0,"row":2,"w":1,"h":2,"kind":"cyl"},
@@ -88,12 +88,12 @@
     {"tech":"sass","layer":0,"col":4,"row":5,"w":1,"h":1},
     {"tech":"typescript","layer":0,"col":8,"row":5,"w":1,"h":2},
     {"tech":"bash","layer":0,"col":0,"row":6,"w":1,"h":1},
-    {"tech":"nextjs","layer":0,"col":2,"row":6,"w":1,"h":1},
+    {"tech":"nextjs","layer":0,"col":2,"row":6,"w":1,"h":1,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":4,"row":6,"w":1,"h":1,"kind":"cyl"},
     {"tech":"git","layer":0,"col":6,"row":6,"w":1,"h":2},
-    {"tech":"bash","layer":0,"col":0,"row":7,"w":1,"h":1},
-    {"tech":"jquery","layer":0,"col":2,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"mysql","layer":0,"col":4,"row":7,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":0,"row":7,"w":1,"h":1,"kind":"arrowR"},
+    {"tech":"jquery","layer":0,"col":2,"row":7,"w":1,"h":1,"kind":"bomb"},
+    {"tech":"mysql","layer":0,"col":4,"row":7,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"html5","layer":0,"col":8,"row":7,"w":1,"h":1,"kind":"cyl"}
   ]
 }

@@ -64,7 +64,7 @@
     {"tech":"nodejs","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"cyl"},
     {"tech":"dart","layer":0,"col":3,"row":1,"w":1,"h":2},
     {"tech":"firebase","layer":0,"col":4,"row":1,"w":2,"h":2},
-    {"tech":"swift","layer":0,"col":2,"row":2,"w":1,"h":1},
+    {"tech":"swift","layer":0,"col":2,"row":2,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"bash","layer":0,"col":6,"row":2,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":1,"row":3,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":2,"row":3,"w":2,"h":2},
@@ -75,6 +75,6 @@
     {"tech":"javascript","layer":0,"col":4,"row":4,"w":2,"h":1},
     {"tech":"bash","layer":0,"col":6,"row":4,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":7,"row":4,"w":1,"h":1},
-    {"tech":"claude","layer":0,"col":8,"row":4,"w":1,"h":1,"kind":"cyl"}
+    {"tech":"claude","layer":0,"col":8,"row":4,"w":1,"h":1,"kind":"arrowL"}
   ]
 }

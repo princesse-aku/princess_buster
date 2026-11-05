@@ -19,7 +19,7 @@
   "cols": 5,
   "pieces": [
     {"tech":"bootstrap","layer":0,"col":0,"row":0,"w":1,"h":1},
-    {"tech":"typescript","layer":0,"col":4,"row":0,"w":1,"h":1},
+    {"tech":"typescript","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"coin"},
     {"tech":"javascript","layer":0,"col":0,"row":1,"w":1,"h":1},
     {"tech":"typescript","layer":0,"col":4,"row":1,"w":1,"h":1},
     {"tech":"javascript","layer":0,"col":0,"row":2,"w":1,"h":1},
@@ -31,6 +31,6 @@
     {"tech":"typescript","layer":0,"col":4,"row":3,"w":1,"h":1},
     {"tech":"typescript","layer":0,"col":2,"row":4,"w":1,"h":1},
     {"tech":"sass","layer":0,"col":3,"row":4,"w":1,"h":1},
-    {"tech":"typescript","layer":0,"col":4,"row":4,"w":1,"h":1}
+    {"tech":"typescript","layer":0,"col":4,"row":4,"w":1,"h":1,"kind":"bomb"}
   ]
 }

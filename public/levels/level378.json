@@ -77,19 +77,19 @@
     {"tech":"nextjs","layer":0,"col":4,"row":3,"w":1,"h":2},
     {"tech":"html5","layer":0,"col":8,"row":3,"w":1,"h":1},
     {"tech":"cplusplus","layer":0,"col":0,"row":4,"w":1,"h":1},
-    {"tech":"php","layer":0,"col":2,"row":4,"w":1,"h":1},
+    {"tech":"php","layer":0,"col":2,"row":4,"w":1,"h":1,"kind":"bomb"},
     {"tech":"graphql","layer":0,"col":6,"row":4,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":8,"row":4,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":8,"row":4,"w":1,"h":1,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":0,"row":5,"w":1,"h":1},
-    {"tech":"svelte","layer":0,"col":2,"row":5,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"svelte","layer":0,"col":2,"row":5,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"nodejs","layer":0,"col":4,"row":5,"w":1,"h":1},
     {"tech":"swift","layer":0,"col":6,"row":5,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":8,"row":5,"w":1,"h":2,"kind":"cyl"},
+    {"tech":"bash","layer":0,"col":8,"row":5,"w":1,"h":2,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":0,"row":6,"w":1,"h":2,"kind":"cyl"},
     {"tech":"llama","layer":0,"col":2,"row":6,"w":1,"h":2},
     {"tech":"go","layer":0,"col":4,"row":6,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":6,"row":6,"w":1,"h":2,"kind":"cyl"},
     {"tech":"git","layer":0,"col":4,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"perplexity","layer":0,"col":8,"row":7,"w":1,"h":1}
+    {"tech":"perplexity","layer":0,"col":8,"row":7,"w":1,"h":1,"kind":"arrowL"}
   ]
 }

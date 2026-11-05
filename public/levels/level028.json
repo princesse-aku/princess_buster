@@ -24,7 +24,7 @@
     {"tech":"typescript","layer":0,"col":2,"row":1,"w":1,"h":1},
     {"tech":"typescript","layer":0,"col":4,"row":1,"w":1,"h":1},
     {"tech":"typescript","layer":0,"col":0,"row":2,"w":1,"h":1},
-    {"tech":"sass","layer":0,"col":2,"row":2,"w":1,"h":2},
+    {"tech":"sass","layer":0,"col":2,"row":2,"w":1,"h":2,"kind":"bomb"},
     {"tech":"css3","layer":0,"col":4,"row":2,"w":1,"h":1},
     {"tech":"typescript","layer":0,"col":0,"row":3,"w":1,"h":1},
     {"tech":"sass","layer":0,"col":4,"row":3,"w":1,"h":1}

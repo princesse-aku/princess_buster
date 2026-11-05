@@ -342,6 +342,7 @@
   async function startLevel(n) {
     currentLevel = n;
     levelData = await getLevel(n);
+    ballsMax = Game.ballsFor(levelData);
     $('result').classList.add('hidden'); $('panel-win').classList.add('hidden'); $('panel-lose').classList.add('hidden');
     $('hud-level').textContent = `Niveau ${n}`;
     show('game');
@@ -356,10 +357,16 @@
     startTuto(n);
   }
 
+  let ballsMax = 1;
   function onStatus({ balls, cubes, powers, armed }) {
     const ballsEl = $('hud-balls');
     if (ballsEl.textContent !== String(balls)) { const pill = ballsEl.parentElement; pill.classList.remove('bump'); void pill.offsetWidth; pill.classList.add('bump'); }
     ballsEl.textContent = balls;
+    if (levelData) {                                                     // jauge de balles : se vide à chaque tir, passe à l'orange puis au rouge
+      ballsMax = Math.max(ballsMax, balls, 1);
+      const k = Math.max(0, Math.min(1, balls / ballsMax)), fill = $('balls-fill');
+      fill.style.width = (k * 100) + '%'; fill.dataset.low = k <= 0.15 ? '2' : k <= 0.35 ? '1' : '0';
+    }
     $('hud-cubes').innerHTML = `Cubes : <b>${cubes}</b>`;
     if (tutoOn && levelData && balls < Game.ballsFor(levelData)) endTuto();       // premier tir : le tutoriel s'efface
     for (const [name, id] of [['triple', 'pw-triple'], ['super', 'pw-super']]) {

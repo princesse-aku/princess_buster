@@ -42,7 +42,7 @@
     {"tech":"claude","layer":0,"col":5,"row":2,"w":1,"h":2},
     {"tech":"claude","layer":0,"col":7,"row":2,"w":1,"h":1,"kind":"cyl"},
     {"tech":"sass","layer":0,"col":0,"row":3,"w":1,"h":1},
-    {"tech":"openai","layer":0,"col":1,"row":3,"w":1,"h":1},
+    {"tech":"openai","layer":0,"col":1,"row":3,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"claude","layer":0,"col":3,"row":3,"w":1,"h":1},
     {"tech":"php","layer":0,"col":7,"row":3,"w":1,"h":1},
     {"tech":"javascript","layer":0,"col":0,"row":4,"w":2,"h":1},

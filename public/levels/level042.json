@@ -23,7 +23,7 @@
   "pieces": [
     {"tech":"jquery","layer":0,"col":0,"row":0,"w":1,"h":2,"kind":"cyl"},
     {"tech":"laravel","layer":0,"col":2,"row":0,"w":1,"h":1},
-    {"tech":"html5","layer":0,"col":4,"row":0,"w":1,"h":1},
+    {"tech":"html5","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"arrowL"},
     {"tech":"css3","layer":0,"col":2,"row":1,"w":1,"h":1},
     {"tech":"sass","layer":0,"col":4,"row":1,"w":1,"h":1,"kind":"cyl"},
     {"tech":"javascript","layer":0,"col":0,"row":2,"w":1,"h":2},

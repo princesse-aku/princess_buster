@@ -63,7 +63,7 @@
   "pieces": [
     {"tech":"typescript","layer":0,"col":0,"row":0,"w":1,"h":1,"kind":"cyl"},
     {"tech":"jquery","layer":0,"col":8,"row":0,"w":1,"h":1},
-    {"tech":"css3","layer":0,"col":0,"row":1,"w":1,"h":1},
+    {"tech":"css3","layer":0,"col":0,"row":1,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"openai","layer":0,"col":8,"row":1,"w":1,"h":1},
     {"tech":"python","layer":0,"col":0,"row":2,"w":1,"h":2},
     {"tech":"bash","layer":0,"col":8,"row":2,"w":1,"h":1,"kind":"cyl"},

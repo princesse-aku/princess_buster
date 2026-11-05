@@ -61,7 +61,7 @@ const Game = (() => {
   }
 
   let techs = {};            // key -> { name, color, img }
-  let engine, platform, cubes, shots, ghosts, particles, debris, blasts;
+  let engine, platform, cubes, shots, ghosts, particles, debris, blasts, later;
   let platformW = 300, loopId = 0, puffs = [];
   let level = null, ballsLeft = 0, running = false, finished = false;
   let cannonX = W / 2;                     // canon fixe au centre
@@ -133,7 +133,8 @@ const Game = (() => {
   // (avec une rangée arrière, un tir en fait tomber deux d'un coup : la marge est plus serrée)
   const ballsFor = (lvl) => {
     const all = piecesOf(lvl).pieces, id = lvl.id || 1, back = all.some((p) => p.layer);
-    return Math.min(lvl.balls, Math.ceil(all.length * Math.max(back ? 0.6 : 0.85, 1.15 - id * (back ? 0.0025 : 0.0015))) + 3);
+    const base = Math.min(lvl.balls, Math.ceil(all.length * Math.max(back ? 0.6 : 0.85, 1.15 - id * (back ? 0.0025 : 0.0015))) + 3);
+    return Math.ceil(base * 1.25) + 1;                                   // réserve plus généreuse (+25 %, +1)
   };
 
   // --- niveau ---
@@ -142,7 +143,7 @@ const Game = (() => {
     level = lvl;
     engine = Engine.create({ enableSleeping: true, positionIterations: 12, velocityIterations: 8 });
     engine.gravity.y = 1.1;
-    cubes = []; shots = []; ghosts = []; particles = []; debris = []; puffs = []; blasts = []; sprites.clear();
+    cubes = []; shots = []; ghosts = []; particles = []; debris = []; puffs = []; blasts = []; later = []; sprites.clear();
     ballsLeft = ballsFor(lvl); lastShot = -1000; finished = false; settleTimer = 0; aiming = false; shake = 0; flash = 0; comboCount = 0;
     aim = 0; target = null; powers = { triple: 1, super: 1 }; armed = null;
 
@@ -325,7 +326,39 @@ const Game = (() => {
   function removeCube(c) {
     Composite.remove(engine.world, c); cubes.splice(cubes.indexOf(c), 1);
     comboCount++; comboTime = time; comboX = Math.max(80, Math.min(W - 80, c.position.x)); comboY = Math.min(visY(c), PLATFORM_Y);
+    if (c.kind) special(c);
     emitStatus();
+  }
+
+  // Pièces spéciales, déclenchées quand elles quittent la table :
+  //  - coin : pièce d'or, rapporte une balle ; - bomb : baril explosif, souffle les pièces proches ;
+  //  - arrowR / arrowL : bloc à flèche, balaie toute la rangée dans le sens de la flèche
+  function special(c) {
+    const px = c.position.x, py = visY(c);
+    if (c.kind === 'coin') {
+      ballsLeft++; burst(px, py, '#ffd23f', 18);
+      callbacks.popup && callbacks.popup('+1 balle', Math.max(70, Math.min(W - 70, px)), Math.min(py, PLATFORM_Y));
+      callbacks.sfx && callbacks.sfx('coin');
+    } else if (c.kind === 'bomb') {
+      later.push({ at: time + 150, fn: () => {
+        blasts.push({ x: px, y: py, life: 1, big: true }); shake = Math.max(shake, 9); burst(px, py, '#ff7a1a', 22);
+        callbacks.sfx && callbacks.sfx('break'); callbacks.vibrate && callbacks.vibrate(40);
+        const R = CUBE * 2.5;
+        for (const o of [...cubes]) {
+          const dx = o.position.x - px, dy = visY(o) - py;
+          if (Math.hypot(dx, dy) < R) sendBack(o, Math.sign(dx) || 1, 0.9);
+        }
+      } });
+    } else if (c.kind === 'arrowR' || c.kind === 'arrowL') {
+      const dir = c.kind === 'arrowR' ? 1 : -1;
+      const row = [...cubes].filter((o) => o.layer === 0 && Math.abs(visY(o) - py) < c.ph * CUBE * 0.7 + 6 && (o.position.x - px) * dir > 0)
+        .sort((a, b) => Math.abs(a.position.x - px) - Math.abs(b.position.x - px));
+      row.forEach((o, i) => later.push({ at: time + 110 + i * 80, fn: () => {
+        if (!cubes.includes(o)) return;
+        blasts.push({ x: o.position.x, y: visY(o), life: 1 }); sendBack(o, dir, 0.9);
+      } }));
+      if (row.length) callbacks.sfx && callbacks.sfx('hit');
+    }
   }
 
   function isSupported(c) {
@@ -376,6 +409,7 @@ const Game = (() => {
 
   function step(dt) {
     time += dt;
+    for (let i = later.length - 1; i >= 0; i--) if (later[i].at <= time) { const f = later[i].fn; later.splice(i, 1); f(); }   // actions différées (explosions en chaîne)
     Engine.update(engine, dt);
 
     // projectiles
@@ -699,7 +733,10 @@ const Game = (() => {
     const prev = ctx; ctx = cv.getContext('2d');
     try {
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.translate(cw / 2, pad + d + h / 2);
-      if (kind === 'cyl') paintCyl(t, pw, w, h); else paintBox(t, pw, w, h, d);
+      if (kind === 'coin') paintCoin(w, h);
+      else if (kind === 'bomb') paintCyl(specialTech(t, 'bomb'), pw, w, h);
+      else if (kind === 'arrowR' || kind === 'arrowL') paintBox(specialTech(t, kind), pw, w, h, d);
+      else if (kind === 'cyl') paintCyl(t, pw, w, h); else paintBox(t, pw, w, h, d);
       if (back) { ctx.globalCompositeOperation = 'source-atop'; ctx.fillStyle = 'rgba(16,12,60,.26)'; ctx.fillRect(-cw, -chh, cw * 2, chh * 2); ctx.globalCompositeOperation = 'source-over'; }
     } finally { ctx = prev; }
     sp = { cv, cw, chh, oy: pad + d + h / 2 };
@@ -739,6 +776,44 @@ const Game = (() => {
       for (let i = 0; i < n; i++) ctx.drawImage(icon, (n === 2 ? (i ? 1 : -1) * w / 4 : 0) - ls / 2, -ls / 2, ls, ls);
       ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
     }
+  }
+
+  // pièces spéciales : couleur et emblème propres (le logo de la techno n'est pas affiché)
+  const SPECIAL_BASE = { bomb: '#2c2e48', arrowR: '#2f6dff', arrowL: '#2f6dff' };
+  const emblems = {};
+  function emblem(kind) {
+    if (emblems[kind]) return emblems[kind];
+    const cv = document.createElement('canvas'); cv.width = cv.height = 128; const g = cv.getContext('2d');
+    if (kind === 'bomb') {                                               // flamme orange sur baril sombre
+      const flame = (sc, col) => { g.save(); g.translate(64, 70); g.scale(sc, sc); g.fillStyle = col; g.beginPath();
+        g.moveTo(0, -56); g.bezierCurveTo(24, -28, 44, -6, 40, 22); g.bezierCurveTo(37, 46, 18, 56, 0, 56); g.bezierCurveTo(-18, 56, -37, 46, -40, 22); g.bezierCurveTo(-44, -2, -22, -22, -10, -40); g.bezierCurveTo(-6, -26, 0, -22, 8, -24); g.bezierCurveTo(6, -38, 0, -46, 0, -56); g.closePath(); g.fill(); g.restore(); };
+      g.lineJoin = 'round'; g.strokeStyle = '#fff'; g.lineWidth = 8; g.save(); g.translate(64, 70); g.beginPath(); g.arc(0, 0, 0, 0, 0); g.restore();
+      flame(1.02, '#fff'); flame(0.92, '#ff5a1a'); flame(0.6, '#ffb42a'); flame(0.3, '#fff3a0');
+    } else {
+      g.translate(64, 64); if (kind === 'arrowL') g.scale(-1, 1);
+      g.fillStyle = '#ffd23f'; g.strokeStyle = '#8a5a00'; g.lineWidth = 7; g.lineJoin = 'round';
+      g.beginPath(); g.moveTo(-34, -22); g.lineTo(6, -22); g.lineTo(6, -42); g.lineTo(44, 0); g.lineTo(6, 42); g.lineTo(6, 22); g.lineTo(-34, 22); g.closePath(); g.stroke(); g.fill();
+      g.fillStyle = 'rgba(255,255,255,.5)'; g.fillRect(-28, -17, 30, 7);
+    }
+    return (emblems[kind] = cv);
+  }
+  const specialCache = {};
+  function specialTech(t, kind) {
+    const k = t.key + '|' + kind;
+    return specialCache[k] || (specialCache[k] = { ...t, base: SPECIAL_BASE[kind], white: emblem(kind), img: null });
+  }
+
+  // pièce d'or : pièce ronde dorée avec une étoile
+  function paintCoin(w, h) {
+    const r = Math.min(w, h) / 2 - 3;
+    ctx.fillStyle = 'rgba(0,0,0,.2)'; ctx.beginPath(); ctx.ellipse(2, 4, r, r, 0, 0, 7); ctx.fill();
+    const g = ctx.createRadialGradient(-r * 0.3, -r * 0.35, r * 0.1, 0, 0, r);
+    g.addColorStop(0, '#fff6b0'); g.addColorStop(0.45, '#ffc928'); g.addColorStop(1, '#d98a00');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.lineWidth = 3.4; ctx.strokeStyle = '#a86a00'; ctx.stroke();
+    ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.beginPath(); ctx.arc(0, 0, r * 0.74, 0, 7); ctx.stroke();
+    ctx.fillStyle = '#fff3a0'; ctx.strokeStyle = '#b87800'; ctx.lineWidth = 2.4; ctx.beginPath();
+    for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.2 : r * 0.46; ctx.lineTo(Math.cos(a) * rr, Math.sin(a) * rr); }
+    ctx.closePath(); ctx.fill(); ctx.stroke();
   }
 
   // Pièce « tambour » : cylindre debout (dessus elliptique, bandes, reflet vertical) au lieu d'une boîte

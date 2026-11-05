@@ -61,12 +61,12 @@
   "rows": 8,
   "cols": 9,
   "pieces": [
-    {"tech":"php","layer":0,"col":7,"row":0,"w":1,"h":1},
+    {"tech":"php","layer":0,"col":7,"row":0,"w":1,"h":1,"kind":"arrowL"},
     {"tech":"jquery","layer":0,"col":8,"row":0,"w":1,"h":2,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":6,"row":1,"w":2,"h":1},
-    {"tech":"bash","layer":0,"col":5,"row":2,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":5,"row":2,"w":1,"h":1,"kind":"arrowL"},
     {"tech":"ruby","layer":0,"col":6,"row":2,"w":2,"h":1},
-    {"tech":"laravel","layer":0,"col":8,"row":2,"w":1,"h":1},
+    {"tech":"laravel","layer":0,"col":8,"row":2,"w":1,"h":1,"kind":"bomb"},
     {"tech":"firebase","layer":0,"col":4,"row":3,"w":2,"h":1},
     {"tech":"svelte","layer":0,"col":6,"row":3,"w":1,"h":1},
     {"tech":"nodejs","layer":0,"col":7,"row":3,"w":1,"h":1},
@@ -82,10 +82,10 @@
     {"tech":"bootstrap","layer":0,"col":1,"row":6,"w":3,"h":1},
     {"tech":"tailwindcss","layer":0,"col":5,"row":6,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":8,"row":6,"w":1,"h":2,"kind":"cyl"},
-    {"tech":"kubernetes","layer":0,"col":0,"row":7,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"kubernetes","layer":0,"col":0,"row":7,"w":1,"h":1,"kind":"bomb"},
     {"tech":"docker","layer":0,"col":1,"row":7,"w":2,"h":1},
     {"tech":"go","layer":0,"col":3,"row":7,"w":3,"h":1},
-    {"tech":"java","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"java","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":7,"row":7,"w":1,"h":1}
   ]
 }
