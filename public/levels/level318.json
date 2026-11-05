@@ -61,8 +61,8 @@
   "rows": 5,
   "cols": 9,
   "pieces": [
-    {"tech":"bash","layer":0,"col":4,"row":0,"w":1,"h":1},
-    {"tech":"go","layer":0,"col":3,"row":1,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"arrowR"},
+    {"tech":"go","layer":0,"col":3,"row":1,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"swift","layer":0,"col":4,"row":1,"w":1,"h":2,"kind":"cyl"},
     {"tech":"kotlin","layer":0,"col":5,"row":1,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":2,"row":2,"w":2,"h":1},

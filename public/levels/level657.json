@@ -63,18 +63,18 @@
   "pieces": [
     {"tech":"rust","layer":0,"col":0,"row":0,"w":1,"h":1,"kind":"cyl"},
     {"tech":"svelte","layer":0,"col":2,"row":0,"w":1,"h":1},
-    {"tech":"redis","layer":0,"col":4,"row":0,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":6,"row":0,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"redis","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"coin"},
+    {"tech":"bash","layer":0,"col":6,"row":0,"w":1,"h":1,"kind":"coin"},
     {"tech":"bootstrap","layer":0,"col":8,"row":0,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":0,"row":1,"w":1,"h":2},
-    {"tech":"express","layer":0,"col":2,"row":1,"w":1,"h":1},
+    {"tech":"express","layer":0,"col":2,"row":1,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"nextjs","layer":0,"col":4,"row":1,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"nodejs","layer":0,"col":6,"row":1,"w":1,"h":1},
+    {"tech":"nodejs","layer":0,"col":6,"row":1,"w":1,"h":1,"kind":"arrowL"},
     {"tech":"bash","layer":0,"col":8,"row":1,"w":1,"h":1},
     {"tech":"html5","layer":0,"col":2,"row":2,"w":1,"h":1,"kind":"cyl"},
     {"tech":"redis","layer":0,"col":4,"row":2,"w":1,"h":2},
     {"tech":"perplexity","layer":0,"col":6,"row":2,"w":1,"h":1},
-    {"tech":"tailwindcss","layer":0,"col":8,"row":2,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"tailwindcss","layer":0,"col":8,"row":2,"w":1,"h":1,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":0,"row":3,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":2,"row":3,"w":1,"h":2},
     {"tech":"ruby","layer":0,"col":6,"row":3,"w":1,"h":2,"kind":"cyl"},
@@ -84,11 +84,11 @@
     {"tech":"llama","layer":0,"col":2,"row":5,"w":1,"h":2,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":6,"row":5,"w":1,"h":2},
     {"tech":"react","layer":0,"col":8,"row":5,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"sass","layer":0,"col":0,"row":6,"w":1,"h":2,"kind":"cyl"},
+    {"tech":"sass","layer":0,"col":0,"row":6,"w":1,"h":2,"kind":"bomb"},
     {"tech":"dart","layer":0,"col":4,"row":6,"w":1,"h":1},
     {"tech":"python","layer":0,"col":8,"row":6,"w":1,"h":2},
     {"tech":"bash","layer":0,"col":2,"row":7,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":4,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"jquery","layer":0,"col":6,"row":7,"w":1,"h":1}
+    {"tech":"jquery","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"bomb"}
   ]
 }

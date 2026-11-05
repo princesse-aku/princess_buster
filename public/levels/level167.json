@@ -46,7 +46,7 @@
   "rows": 8,
   "cols": 9,
   "pieces": [
-    {"tech":"angular","layer":0,"col":2,"row":0,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"angular","layer":0,"col":2,"row":0,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"swift","layer":0,"col":2,"row":1,"w":1,"h":1},
     {"tech":"mysql","layer":0,"col":2,"row":2,"w":1,"h":2},
     {"tech":"perplexity","layer":0,"col":0,"row":3,"w":1,"h":1},

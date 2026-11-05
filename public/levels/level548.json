@@ -61,7 +61,7 @@
   "rows": 8,
   "cols": 9,
   "pieces": [
-    {"tech":"express","layer":0,"col":4,"row":0,"w":1,"h":1},
+    {"tech":"express","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"bash","layer":0,"col":4,"row":1,"w":1,"h":1},
     {"tech":"csharp","layer":0,"col":3,"row":2,"w":1,"h":1},
     {"tech":"css3","layer":0,"col":4,"row":2,"w":1,"h":1,"kind":"cyl"},

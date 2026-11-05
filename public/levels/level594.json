@@ -78,8 +78,8 @@
     {"tech":"nodejs","layer":0,"col":7,"row":6,"w":1,"h":2},
     {"tech":"bash","layer":0,"col":8,"row":6,"w":1,"h":2},
     {"tech":"openai","layer":0,"col":0,"row":7,"w":1,"h":1},
-    {"tech":"flutter","layer":0,"col":1,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"bash","layer":0,"col":2,"row":7,"w":1,"h":1},
-    {"tech":"django","layer":0,"col":6,"row":7,"w":1,"h":1}
+    {"tech":"flutter","layer":0,"col":1,"row":7,"w":1,"h":1,"kind":"bomb"},
+    {"tech":"bash","layer":0,"col":2,"row":7,"w":1,"h":1,"kind":"arrowR"},
+    {"tech":"django","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"arrowL"}
   ]
 }

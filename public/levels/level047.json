@@ -22,10 +22,10 @@
   "rows": 4,
   "cols": 6,
   "pieces": [
-    {"tech":"laravel","layer":0,"col":0,"row":0,"w":1,"h":1},
+    {"tech":"laravel","layer":0,"col":0,"row":0,"w":1,"h":1,"kind":"bomb"},
     {"tech":"nodejs","layer":0,"col":2,"row":0,"w":1,"h":2,"kind":"cyl"},
-    {"tech":"nodejs","layer":0,"col":4,"row":0,"w":1,"h":1},
-    {"tech":"php","layer":0,"col":0,"row":1,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"nodejs","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"coin"},
+    {"tech":"php","layer":0,"col":0,"row":1,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"jquery","layer":0,"col":4,"row":1,"w":1,"h":1},
     {"tech":"typescript","layer":0,"col":0,"row":2,"w":2,"h":1},
     {"tech":"laravel","layer":0,"col":2,"row":2,"w":1,"h":1},

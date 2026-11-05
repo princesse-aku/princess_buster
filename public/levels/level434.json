@@ -83,15 +83,15 @@
     {"tech":"bootstrap","layer":0,"col":4,"row":4,"w":1,"h":1},
     {"tech":"tailwindcss","layer":0,"col":8,"row":4,"w":1,"h":2},
     {"tech":"nextjs","layer":0,"col":2,"row":5,"w":1,"h":1},
-    {"tech":"cplusplus","layer":0,"col":4,"row":5,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"cplusplus","layer":0,"col":4,"row":5,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"mistral","layer":0,"col":6,"row":5,"w":1,"h":1},
     {"tech":"typescript","layer":0,"col":0,"row":6,"w":1,"h":1},
-    {"tech":"postgresql","layer":0,"col":2,"row":6,"w":1,"h":2,"kind":"cyl"},
+    {"tech":"postgresql","layer":0,"col":2,"row":6,"w":1,"h":2,"kind":"bomb"},
     {"tech":"perplexity","layer":0,"col":4,"row":6,"w":1,"h":2},
     {"tech":"mysql","layer":0,"col":6,"row":6,"w":1,"h":1},
-    {"tech":"python","layer":0,"col":8,"row":6,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"python","layer":0,"col":8,"row":6,"w":1,"h":1,"kind":"bomb"},
     {"tech":"angular","layer":0,"col":0,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"bash","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"bash","layer":0,"col":8,"row":7,"w":1,"h":1}
+    {"tech":"bash","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"arrowL"},
+    {"tech":"bash","layer":0,"col":8,"row":7,"w":1,"h":1,"kind":"bomb"}
   ]
 }

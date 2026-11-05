@@ -66,7 +66,7 @@
     {"tech":"nextjs","layer":0,"col":3,"row":2,"w":1,"h":2,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":4,"row":2,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":5,"row":2,"w":1,"h":1},
-    {"tech":"graphql","layer":0,"col":2,"row":3,"w":1,"h":1},
+    {"tech":"graphql","layer":0,"col":2,"row":3,"w":1,"h":1,"kind":"bomb"},
     {"tech":"kubernetes","layer":0,"col":4,"row":3,"w":2,"h":2},
     {"tech":"bash","layer":0,"col":6,"row":3,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":1,"row":4,"w":2,"h":1},
@@ -79,11 +79,11 @@
     {"tech":"dart","layer":0,"col":0,"row":6,"w":1,"h":1},
     {"tech":"graphql","layer":0,"col":1,"row":6,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":2,"row":6,"w":1,"h":2},
-    {"tech":"gemini","layer":0,"col":8,"row":6,"w":1,"h":2},
+    {"tech":"gemini","layer":0,"col":8,"row":6,"w":1,"h":2,"kind":"bomb"},
     {"tech":"gemini","layer":0,"col":0,"row":7,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":1,"row":7,"w":1,"h":1},
     {"tech":"jquery","layer":0,"col":3,"row":7,"w":2,"h":1},
-    {"tech":"cplusplus","layer":0,"col":5,"row":7,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"cplusplus","layer":0,"col":5,"row":7,"w":1,"h":1,"kind":"arrowL"},
     {"tech":"grok","layer":0,"col":6,"row":7,"w":1,"h":1},
     {"tech":"cplusplus","layer":0,"col":7,"row":7,"w":1,"h":1}
   ]

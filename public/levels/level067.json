@@ -27,9 +27,9 @@
   "cols": 6,
   "pieces": [
     {"tech":"angular","layer":0,"col":0,"row":0,"w":1,"h":1},
-    {"tech":"angular","layer":0,"col":2,"row":0,"w":1,"h":1},
+    {"tech":"angular","layer":0,"col":2,"row":0,"w":1,"h":1,"kind":"coin"},
     {"tech":"php","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"vuejs","layer":0,"col":0,"row":1,"w":1,"h":1},
+    {"tech":"vuejs","layer":0,"col":0,"row":1,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"php","layer":0,"col":2,"row":1,"w":1,"h":1,"kind":"cyl"},
     {"tech":"nodejs","layer":0,"col":4,"row":1,"w":1,"h":1},
     {"tech":"react","layer":0,"col":0,"row":2,"w":3,"h":2},

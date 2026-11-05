@@ -26,7 +26,7 @@
     {"tech":"javascript","layer":0,"col":3,"row":1,"w":1,"h":1},
     {"tech":"php","layer":0,"col":4,"row":1,"w":1,"h":2},
     {"tech":"sass","layer":0,"col":0,"row":2,"w":2,"h":2},
-    {"tech":"php","layer":0,"col":2,"row":2,"w":1,"h":2},
+    {"tech":"php","layer":0,"col":2,"row":2,"w":1,"h":2,"kind":"bomb"},
     {"tech":"bootstrap","layer":0,"col":3,"row":2,"w":1,"h":1},
     {"tech":"bootstrap","layer":0,"col":3,"row":3,"w":2,"h":1},
     {"tech":"php","layer":1,"col":0,"row":0,"w":1,"h":1},

@@ -21,7 +21,7 @@
   "cols": 5,
   "pieces": [
     {"tech":"tailwindcss","layer":0,"col":0,"row":0,"w":1,"h":1},
-    {"tech":"html5","layer":0,"col":2,"row":0,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"html5","layer":0,"col":2,"row":0,"w":1,"h":1,"kind":"coin"},
     {"tech":"css3","layer":0,"col":4,"row":0,"w":1,"h":1},
     {"tech":"tailwindcss","layer":0,"col":0,"row":1,"w":1,"h":1,"kind":"cyl"},
     {"tech":"sass","layer":0,"col":2,"row":1,"w":1,"h":1},

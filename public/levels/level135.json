@@ -68,7 +68,7 @@
     {"tech":"javascript","layer":0,"col":3,"row":6,"w":2,"h":1},
     {"tech":"huggingface","layer":0,"col":5,"row":6,"w":2,"h":2},
     {"tech":"huggingface","layer":0,"col":1,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"huggingface","layer":0,"col":2,"row":7,"w":1,"h":1},
+    {"tech":"huggingface","layer":0,"col":2,"row":7,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"typescript","layer":0,"col":3,"row":7,"w":1,"h":1},
     {"tech":"huggingface","layer":0,"col":4,"row":7,"w":1,"h":1,"kind":"cyl"},
     {"tech":"tailwindcss","layer":0,"col":7,"row":7,"w":1,"h":1,"kind":"cyl"},

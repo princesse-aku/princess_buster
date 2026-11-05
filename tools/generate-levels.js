@@ -202,8 +202,20 @@ for (let id = 1; id <= TOTAL; id++) {
   if (id >= 6 && (id * 7) % 10 < 6) addLayer(1, id < 12 ? 0.5 : id < 25 ? 0.75 : 1, heights);
   front.forEach((p) => { p.row += rowsTotal - mask.length; });
 
-  // pièces « tambour » (cylindres debout) : purement visuel, décidé sans tirage aléatoire pour ne pas changer les niveaux
-  for (const p of [...front, ...back]) if (id >= 30 && p.w === 1 && (p.col * 7 + p.row * 5 + p.layer * 3 + id * 11) % 3 === 0) p.kind = 'cyl';
+  // Pièces spéciales et pièces « tambour » : décidées sans tirage aléatoire (empreinte de la position) pour ne pas changer la forme des niveaux.
+  //  coin = pièce d'or (+1 balle), bomb = baril explosif, arrowR / arrowL = bloc à flèche (balaie la rangée), cyl = tambour (visuel)
+  const allPieces = [...front, ...back];
+  const isTop = (p) => !allPieces.some((q) => q.layer === p.layer && q.row + q.h === p.row && q.col < p.col + p.w && p.col < q.col + q.w);
+  const cap = { coin: id >= 25 ? (id >= 100 ? 2 : 1) : 0, bomb: id >= 18 ? 1 + (id >= 60 ? 1 : 0) + (id >= 200 ? 1 : 0) : 0, arrow: id >= 40 ? (id >= 150 ? 2 : 1) : 0 };
+  const used = { coin: 0, bomb: 0, arrow: 0 };
+  for (const p of allPieces) {
+    if (p.layer !== 0) continue;
+    const hsh = (p.col * 13 + p.row * 7 + id * 17) % 23;
+    if (p.w === 1 && p.h === 1 && isTop(p) && hsh % 5 === 0 && used.coin < cap.coin) { p.kind = 'coin'; used.coin++; continue; }
+    if (p.w === 1 && hsh % 7 === 3 && used.bomb < cap.bomb) { p.kind = 'bomb'; used.bomb++; continue; }
+    if (p.w === 1 && p.h === 1 && hsh % 6 === 1 && used.arrow < cap.arrow) { p.kind = p.col < cols / 2 ? 'arrowR' : 'arrowL'; used.arrow++; continue; }
+  }
+  for (const p of allPieces) if (!p.kind && id >= 30 && p.w === 1 && (p.col * 7 + p.row * 5 + p.layer * 3 + id * 11) % 3 === 0) p.kind = 'cyl';
   pieces = [...front, ...back];
   pieces.sort((a, b) => a.layer - b.layer || a.row - b.row || a.col - b.col);
   // Une balle ne fait tomber que la pièce visée. Distance parcourue par coup = 14 x 0,8 / (masse x 0,06) avec

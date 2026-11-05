@@ -17,7 +17,7 @@
   "rows": 5,
   "cols": 5,
   "pieces": [
-    {"tech":"javascript","layer":0,"col":0,"row":0,"w":1,"h":2},
+    {"tech":"javascript","layer":0,"col":0,"row":0,"w":1,"h":2,"kind":"bomb"},
     {"tech":"bootstrap","layer":0,"col":2,"row":0,"w":1,"h":1},
     {"tech":"bootstrap","layer":0,"col":4,"row":0,"w":1,"h":1},
     {"tech":"sass","layer":0,"col":2,"row":1,"w":1,"h":1},

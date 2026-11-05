@@ -24,11 +24,11 @@
   "rows": 6,
   "cols": 7,
   "pieces": [
-    {"tech":"react","layer":0,"col":3,"row":0,"w":1,"h":1},
+    {"tech":"react","layer":0,"col":3,"row":0,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"bootstrap","layer":0,"col":3,"row":1,"w":1,"h":1,"kind":"cyl"},
     {"tech":"javascript","layer":0,"col":3,"row":2,"w":1,"h":1},
     {"tech":"css3","layer":0,"col":0,"row":3,"w":2,"h":1},
-    {"tech":"react","layer":0,"col":2,"row":3,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"react","layer":0,"col":2,"row":3,"w":1,"h":1,"kind":"coin"},
     {"tech":"react","layer":0,"col":3,"row":3,"w":1,"h":2},
     {"tech":"sass","layer":0,"col":4,"row":3,"w":1,"h":1},
     {"tech":"react","layer":0,"col":5,"row":3,"w":2,"h":1},

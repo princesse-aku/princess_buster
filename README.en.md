@@ -56,6 +56,8 @@ On first launch: splash screen, terms, then **Sign in with Google** (to save you
 - 🏙️ **Illustrated home screen**: a full-screen futuristic city that adapts to every resolution, with the player's cup and a pile of cubes in the middle
 - 💥 **Physical collapses**: pieces ejected sideways or backwards, chains of falls, colored fragments on the ground (Matter.js)
 - 💥 **Explosive impact**: a fireball and blast push neighbouring pieces away; pieces sent behind the table fly in an arc, shrink and shatter on the grass
+- ⭐ **Special pieces**: **gold coin** (+1 ball), **explosive barrel** (blasts nearby pieces, chain reactions) and **arrow block** (sweeps its whole row in the arrow's direction)
+- 🔴 **Bigger ball gauge** under the counter (green, orange, red) and a more generous ball reserve
 - 🛢️ **Drums and towers**: cylindrical pieces (barrels) and, from level 251, pillar, castle and spire towers
 - 🔒 **No floating cubes**: every piece rests on another piece or on the table (checked by `npm test`)
 - 🎁 **Power-ups**: **triple shot** (level 3) and **super ball** (level 10), one of each per level

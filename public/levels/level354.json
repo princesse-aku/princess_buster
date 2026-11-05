@@ -61,7 +61,7 @@
   "rows": 8,
   "cols": 9,
   "pieces": [
-    {"tech":"mistral","layer":0,"col":0,"row":0,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"mistral","layer":0,"col":0,"row":0,"w":1,"h":1,"kind":"coin"},
     {"tech":"bash","layer":0,"col":2,"row":0,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":4,"row":0,"w":1,"h":2},
     {"tech":"rust","layer":0,"col":6,"row":0,"w":1,"h":1,"kind":"cyl"},
@@ -77,18 +77,18 @@
     {"tech":"go","layer":0,"col":2,"row":3,"w":1,"h":2},
     {"tech":"bash","layer":0,"col":8,"row":3,"w":1,"h":2},
     {"tech":"git","layer":0,"col":0,"row":4,"w":1,"h":1},
-    {"tech":"vuejs","layer":0,"col":4,"row":4,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"vuejs","layer":0,"col":4,"row":4,"w":1,"h":1,"kind":"bomb"},
     {"tech":"claude","layer":0,"col":6,"row":4,"w":1,"h":2},
     {"tech":"nodejs","layer":0,"col":0,"row":5,"w":1,"h":2},
     {"tech":"claude","layer":0,"col":2,"row":5,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"bash","layer":0,"col":4,"row":5,"w":1,"h":2},
+    {"tech":"bash","layer":0,"col":4,"row":5,"w":1,"h":2,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":8,"row":5,"w":1,"h":1,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":2,"row":6,"w":1,"h":1},
     {"tech":"python","layer":0,"col":6,"row":6,"w":1,"h":2,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":8,"row":6,"w":1,"h":1},
     {"tech":"grok","layer":0,"col":0,"row":7,"w":1,"h":1},
     {"tech":"go","layer":0,"col":2,"row":7,"w":1,"h":1},
-    {"tech":"bootstrap","layer":0,"col":4,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"bash","layer":0,"col":8,"row":7,"w":1,"h":1}
+    {"tech":"bootstrap","layer":0,"col":4,"row":7,"w":1,"h":1,"kind":"arrowR"},
+    {"tech":"bash","layer":0,"col":8,"row":7,"w":1,"h":1,"kind":"arrowL"}
   ]
 }

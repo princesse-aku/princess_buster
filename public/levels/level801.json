@@ -64,10 +64,10 @@
     {"tech":"bash","layer":0,"col":0,"row":0,"w":1,"h":1,"kind":"cyl"},
     {"tech":"tailwindcss","layer":0,"col":2,"row":0,"w":1,"h":2},
     {"tech":"sass","layer":0,"col":4,"row":0,"w":1,"h":2},
-    {"tech":"huggingface","layer":0,"col":6,"row":0,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"huggingface","layer":0,"col":6,"row":0,"w":1,"h":1,"kind":"coin"},
     {"tech":"dart","layer":0,"col":8,"row":0,"w":1,"h":2},
     {"tech":"bash","layer":0,"col":0,"row":1,"w":1,"h":1},
-    {"tech":"kubernetes","layer":0,"col":6,"row":1,"w":1,"h":1},
+    {"tech":"kubernetes","layer":0,"col":6,"row":1,"w":1,"h":1,"kind":"bomb"},
     {"tech":"git","layer":0,"col":0,"row":2,"w":1,"h":1},
     {"tech":"nextjs","layer":0,"col":2,"row":2,"w":1,"h":1,"kind":"cyl"},
     {"tech":"huggingface","layer":0,"col":4,"row":2,"w":1,"h":2},
@@ -85,11 +85,11 @@
     {"tech":"firebase","layer":0,"col":4,"row":5,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":0,"row":6,"w":1,"h":2,"kind":"cyl"},
     {"tech":"flutter","layer":0,"col":2,"row":6,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":4,"row":6,"w":1,"h":2},
+    {"tech":"bash","layer":0,"col":4,"row":6,"w":1,"h":2,"kind":"bomb"},
     {"tech":"nodejs","layer":0,"col":6,"row":6,"w":1,"h":1,"kind":"cyl"},
     {"tech":"html5","layer":0,"col":8,"row":6,"w":1,"h":1},
-    {"tech":"express","layer":0,"col":2,"row":7,"w":1,"h":1},
-    {"tech":"perplexity","layer":0,"col":6,"row":7,"w":1,"h":1},
+    {"tech":"express","layer":0,"col":2,"row":7,"w":1,"h":1,"kind":"arrowR"},
+    {"tech":"perplexity","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"arrowL"},
     {"tech":"bash","layer":0,"col":8,"row":7,"w":1,"h":1}
   ]
 }

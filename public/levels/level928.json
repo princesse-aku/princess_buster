@@ -85,13 +85,13 @@
     {"tech":"nginx","layer":0,"col":0,"row":5,"w":1,"h":1,"kind":"cyl"},
     {"tech":"tailwindcss","layer":0,"col":2,"row":5,"w":1,"h":2},
     {"tech":"swift","layer":0,"col":8,"row":5,"w":1,"h":2},
-    {"tech":"express","layer":0,"col":0,"row":6,"w":1,"h":1},
+    {"tech":"express","layer":0,"col":0,"row":6,"w":1,"h":1,"kind":"bomb"},
     {"tech":"kubernetes","layer":0,"col":4,"row":6,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"bash","layer":0,"col":6,"row":6,"w":1,"h":1},
-    {"tech":"cplusplus","layer":0,"col":0,"row":7,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":6,"row":6,"w":1,"h":1,"kind":"bomb"},
+    {"tech":"cplusplus","layer":0,"col":0,"row":7,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"jquery","layer":0,"col":2,"row":7,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"cplusplus","layer":0,"col":4,"row":7,"w":1,"h":1},
-    {"tech":"mongodb","layer":0,"col":6,"row":7,"w":1,"h":1},
+    {"tech":"cplusplus","layer":0,"col":4,"row":7,"w":1,"h":1,"kind":"arrowR"},
+    {"tech":"mongodb","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"bomb"},
     {"tech":"redis","layer":0,"col":8,"row":7,"w":1,"h":1,"kind":"cyl"}
   ]
 }

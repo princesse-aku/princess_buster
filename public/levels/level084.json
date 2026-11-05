@@ -49,15 +49,15 @@
     {"tech":"php","layer":0,"col":4,"row":4,"w":2,"h":1},
     {"tech":"mysql","layer":0,"col":6,"row":4,"w":1,"h":1},
     {"tech":"mysql","layer":0,"col":0,"row":5,"w":2,"h":1},
-    {"tech":"mysql","layer":0,"col":2,"row":5,"w":1,"h":1,"kind":"cyl"},
+    {"tech":"mysql","layer":0,"col":2,"row":5,"w":1,"h":1,"kind":"bomb"},
     {"tech":"mysql","layer":0,"col":3,"row":5,"w":2,"h":1},
     {"tech":"python","layer":0,"col":5,"row":5,"w":1,"h":1,"kind":"cyl"},
     {"tech":"vuejs","layer":0,"col":6,"row":5,"w":1,"h":1},
     {"tech":"laravel","layer":0,"col":0,"row":6,"w":1,"h":1,"kind":"cyl"},
     {"tech":"python","layer":0,"col":1,"row":6,"w":1,"h":1},
-    {"tech":"jquery","layer":0,"col":2,"row":6,"w":1,"h":1},
+    {"tech":"jquery","layer":0,"col":2,"row":6,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"django","layer":0,"col":3,"row":6,"w":2,"h":1},
-    {"tech":"python","layer":0,"col":5,"row":6,"w":1,"h":1},
+    {"tech":"python","layer":0,"col":5,"row":6,"w":1,"h":1,"kind":"bomb"},
     {"tech":"express","layer":0,"col":6,"row":6,"w":1,"h":1,"kind":"cyl"}
   ]
 }

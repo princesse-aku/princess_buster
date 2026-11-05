@@ -29,7 +29,7 @@
     {"tech":"tailwindcss","layer":0,"col":0,"row":1,"w":1,"h":1},
     {"tech":"javascript","layer":0,"col":0,"row":2,"w":2,"h":1},
     {"tech":"jquery","layer":0,"col":2,"row":2,"w":1,"h":2,"kind":"cyl"},
-    {"tech":"laravel","layer":0,"col":3,"row":2,"w":1,"h":1},
+    {"tech":"laravel","layer":0,"col":3,"row":2,"w":1,"h":1,"kind":"coin"},
     {"tech":"express","layer":0,"col":4,"row":2,"w":1,"h":2},
     {"tech":"express","layer":0,"col":5,"row":2,"w":1,"h":1,"kind":"cyl"},
     {"tech":"express","layer":0,"col":0,"row":3,"w":2,"h":2},

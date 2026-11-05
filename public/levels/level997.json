@@ -65,7 +65,7 @@
     {"tech":"huggingface","layer":0,"col":2,"row":0,"w":1,"h":1},
     {"tech":"graphql","layer":0,"col":4,"row":0,"w":1,"h":1,"kind":"cyl"},
     {"tech":"swift","layer":0,"col":6,"row":0,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":8,"row":0,"w":1,"h":1},
+    {"tech":"bash","layer":0,"col":8,"row":0,"w":1,"h":1,"kind":"coin"},
     {"tech":"sass","layer":0,"col":0,"row":1,"w":1,"h":2},
     {"tech":"mysql","layer":0,"col":2,"row":1,"w":1,"h":2,"kind":"cyl"},
     {"tech":"bash","layer":0,"col":4,"row":1,"w":1,"h":1},
@@ -82,16 +82,16 @@
     {"tech":"gemini","layer":0,"col":4,"row":4,"w":1,"h":1},
     {"tech":"perplexity","layer":0,"col":8,"row":4,"w":1,"h":1,"kind":"cyl"},
     {"tech":"postgresql","layer":0,"col":0,"row":5,"w":1,"h":1,"kind":"cyl"},
-    {"tech":"kotlin","layer":0,"col":2,"row":5,"w":1,"h":1},
+    {"tech":"kotlin","layer":0,"col":2,"row":5,"w":1,"h":1,"kind":"arrowR"},
     {"tech":"kotlin","layer":0,"col":4,"row":5,"w":1,"h":1},
     {"tech":"bash","layer":0,"col":6,"row":5,"w":1,"h":1,"kind":"cyl"},
     {"tech":"csharp","layer":0,"col":8,"row":5,"w":1,"h":1},
-    {"tech":"bash","layer":0,"col":0,"row":6,"w":1,"h":2},
+    {"tech":"bash","layer":0,"col":0,"row":6,"w":1,"h":2,"kind":"bomb"},
     {"tech":"bash","layer":0,"col":2,"row":6,"w":1,"h":2},
     {"tech":"bash","layer":0,"col":4,"row":6,"w":1,"h":2,"kind":"cyl"},
-    {"tech":"kubernetes","layer":0,"col":6,"row":6,"w":1,"h":1},
+    {"tech":"kubernetes","layer":0,"col":6,"row":6,"w":1,"h":1,"kind":"bomb"},
     {"tech":"ollama","layer":0,"col":8,"row":6,"w":1,"h":1},
-    {"tech":"python","layer":0,"col":6,"row":7,"w":1,"h":1},
-    {"tech":"express","layer":0,"col":8,"row":7,"w":1,"h":1,"kind":"cyl"}
+    {"tech":"python","layer":0,"col":6,"row":7,"w":1,"h":1,"kind":"bomb"},
+    {"tech":"express","layer":0,"col":8,"row":7,"w":1,"h":1,"kind":"arrowL"}
   ]
 }
