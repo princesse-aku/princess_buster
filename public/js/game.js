@@ -16,7 +16,7 @@ const Game = (() => {
   const PLATFORM_H = 18;
   let CANNON_Y = 954;                 // pivot du canon (bas de l'écran)
   let MUZZLE = 178, cs = 1;           // distance pivot -> bouche ; cs = échelle du canon (réduit sur les écrans bas)
-  const BALL_R = 15, BALL_SPEED = 30;
+  const BALL_R = 25, BALL_SPEED = 30;        // balle bien visible
   const MAX_ANGLE = 62 * Math.PI / 180;
   const FIRE_COOLDOWN = 320;
   const DEPTH = 110;                  // profondeur de la table (dessin du plateau)
@@ -134,7 +134,7 @@ const Game = (() => {
   const ballsFor = (lvl) => {
     const all = piecesOf(lvl).pieces, id = lvl.id || 1, back = all.some((p) => p.layer);
     const base = Math.min(lvl.balls, Math.ceil(all.length * Math.max(back ? 0.6 : 0.85, 1.15 - id * (back ? 0.0025 : 0.0015))) + 3);
-    return Math.ceil(base * 1.25) + 1;                                   // réserve plus généreuse (+25 %, +1)
+    return Math.ceil(base * 1.1) + 1;                                    // réserve un peu plus généreuse (+10 %, +1)
   };
 
   // --- niveau ---
@@ -869,7 +869,7 @@ const Game = (() => {
 
   // trajectoire en perspective : la balle rapetisse en s'éloignant
   function drawShot(s) {
-    const prog = Math.min(1, Math.hypot(s.x - s.sx, s.y - s.sy) / s.total), sc = 1 - 0.45 * prog;
+    const prog = Math.min(1, Math.hypot(s.x - s.sx, s.y - s.sy) / s.total), sc = 1 - 0.3 * prog;
     const r = BALL_R * sc * (s.power > 1 ? 1.4 : 1), sup = s.power > 1;
     // traînée de vitesse : lignes blanches effilées derrière la balle
     if (s.trail.length > 1) {
@@ -883,19 +883,41 @@ const Game = (() => {
       }
       ctx.restore();
     }
-    drawBall(s.x, s.y, r, sup);
+    drawBall(s.x, s.y, r, sup, Math.hypot(s.x - s.sx, s.y - s.sy) * 0.05);
   }
 
   // balle rouge brillante (comme sur le logo) ; la super balle est dorée
-  function drawBall(x, y, r, sup) {
+  function drawBall(x, y, r, sup, spin) {
+    if (spin === undefined) spin = time * 0.003;
     ctx.save(); ctx.translate(x, y);
-    if (!lite) { ctx.shadowColor = sup ? '#ffb300' : 'rgba(255,40,40,.7)'; ctx.shadowBlur = 8; }
+    // halo lumineux autour de la balle (la super balle est dorée)
+    const halo = ctx.createRadialGradient(0, 0, r * 0.8, 0, 0, r * 1.9);
+    halo.addColorStop(0, sup ? 'rgba(255,200,40,.55)' : 'rgba(255,70,70,.45)'); halo.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(0, 0, r * 1.9, 0, 7); ctx.fill();
+    // ombre portée
+    ctx.fillStyle = 'rgba(0,0,0,.22)'; ctx.beginPath(); ctx.ellipse(r * 0.12, r * 0.18, r, r, 0, 0, 7); ctx.fill();
+    // sphère : dégradé rouge (ou or), contour sombre
     const g = ctx.createRadialGradient(-r * 0.35, -r * 0.4, r * 0.08, 0, 0, r);
     if (sup) { g.addColorStop(0, '#fffbe0'); g.addColorStop(0.3, '#ffd23f'); g.addColorStop(0.8, '#f08a00'); g.addColorStop(1, '#a35a00'); }
-    else { g.addColorStop(0, '#ffd6d6'); g.addColorStop(0.25, '#ff5a5a'); g.addColorStop(0.75, '#d9141f'); g.addColorStop(1, '#7a0010'); }
-    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
-    ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.beginPath(); ctx.ellipse(-r * 0.36, -r * 0.42, r * 0.28, r * 0.17, -0.6, 0, 7); ctx.fill();
-    ctx.fillStyle = 'rgba(255,255,255,.25)'; ctx.beginPath(); ctx.arc(r * 0.3, r * 0.38, r * 0.22, 0, 7); ctx.fill();
+    else { g.addColorStop(0, '#ffb0b0'); g.addColorStop(0.28, '#ff4a4a'); g.addColorStop(0.75, '#d9141f'); g.addColorStop(1, '#7a0010'); }
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+    // bandes qui tournent autour de la sphère (jaune, blanc, bleu) : la balle roule en vol
+    ctx.save(); ctx.beginPath(); ctx.arc(0, 0, r - 0.5, 0, 7); ctx.clip(); ctx.rotate(-0.55);
+    const cols = sup ? ['#fff3a0', '#fff', '#ffe27a'] : ['#ffd23f', '#fff', '#2f6dff'];
+    for (let k = 0; k < 6; k++) {
+      const a = spin + k * Math.PI / 3, cs = Math.cos(a);
+      if (cs <= 0.08) continue;
+      const cx = Math.sin(a) * r, hw = Math.max(1.2, r * 0.2 * cs);
+      ctx.globalAlpha = 0.55 + 0.45 * cs; ctx.fillStyle = cols[k % 3]; ctx.fillRect(cx - hw, -r, hw * 2, r * 2);
+    }
+    ctx.restore();
+    // relief : ombrage sur le bord bas-droit, contour, reflets brillants
+    const sh = ctx.createRadialGradient(-r * 0.3, -r * 0.35, r * 0.4, 0, 0, r);
+    sh.addColorStop(0, 'rgba(0,0,0,0)'); sh.addColorStop(1, 'rgba(60,0,10,.5)');
+    ctx.fillStyle = sh; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+    ctx.lineWidth = Math.max(2, r * 0.1); ctx.strokeStyle = sup ? '#7a4300' : '#5a000c'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.beginPath(); ctx.ellipse(-r * 0.36, -r * 0.42, r * 0.3, r * 0.18, -0.6, 0, 7); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,.3)'; ctx.beginPath(); ctx.arc(r * 0.32, r * 0.4, r * 0.2, 0, 7); ctx.fill();
     ctx.restore();
   }
 
