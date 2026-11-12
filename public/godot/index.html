@@ -5,6 +5,14 @@
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
+	<script>
+		// l'hébergeur peut servir /godot/ sous la forme /godot (sans barre finale) : on force la base pour que les fichiers relatifs restent trouvés
+		(function () {
+			var p = location.pathname, last = p.split('/').pop();
+			var dir = last.indexOf('.') < 0 ? p.replace(/\/?$/, '/') : p.replace(/[^/]*$/, '');
+			document.write('<base href="' + dir + '">');
+		})();
+	</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 	<title>Princess Buster 3D</title>
 	<style>
