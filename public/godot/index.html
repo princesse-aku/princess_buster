@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Page d'hébergement de l'export web (préréglage « Web », option « Custom HTML Shell »).
+     Elle charge le moteur Godot et un pont Firebase (connexion Google + enregistrement des victoires)
+     appelé par scripts/cloud.gd. À vérifier à l'export : les variables $GODOT_* sont remplacées par Godot. -->
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<title>Princess Buster 3D</title>
+	<style>
+		html, body { margin: 0; height: 100%; background: #1b0f5a; overflow: hidden; touch-action: none; }
+		#canvas { display: block; width: 100%; height: 100%; }
+		#status { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column;
+			color: #ffd23f; font: 700 22px sans-serif; background: #1b0f5a; }
+		#bar { width: 60%; max-width: 320px; height: 14px; margin-top: 16px; border: 3px solid #ffd23f; border-radius: 10px; overflow: hidden; }
+		#fill { height: 100%; width: 0; background: #5fd02a; }
+	</style>
+	<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
+<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+<link rel="manifest" href="index.manifest.json">
+
+</head>
+<body>
+	<canvas id="canvas">Ton navigateur ne gère pas le canvas HTML5.</canvas>
+	<div id="status">Princess Buster<div id="bar"><div id="fill"></div></div></div>
+	<script src="index.js"></script>
+	<script>
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":8892976,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+		const engine = new Engine(GODOT_CONFIG);
+		engine.startGame({
+			onProgress: (cur, total) => { if (total > 0) document.getElementById('fill').style.width = (100 * cur / total) + '%'; },
+		}).then(() => { document.getElementById('status').style.display = 'none'; }, (err) => {
+			document.getElementById('status').textContent = 'Erreur de chargement : ' + err;
+		});
+	</script>
+	<script type="module">
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+		import { getAuth, GoogleAuthProvider, signInWithRedirect, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+		import { getFirestore, doc, getDoc, setDoc, runTransaction, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+		const app = initializeApp({
+			apiKey: "AIzaSyBY6YslMV8rZKe0pmihWI57l3i5re7H9M0",
+			authDomain: "princess-buster.firebaseapp.com",
+			projectId: "princess-buster",
+			appId: "1:987963224599:web:349fe65312e8752aa66252",
+		});
+		const auth = getAuth(app), db = getFirestore(app);
+		let user = null;
+		onAuthStateChanged(auth, (u) => { user = u ? { uid: u.uid, name: (u.displayName || '').split(/\s+/)[0] || 'Joueur' } : null; });
+
+		// état du joueur connecté (lu par Godot)
+		window.pbUser = () => (user ? JSON.stringify(user) : '');
+		// connexion Google par redirection (fiable sur mobile ; la page se recharge au retour, la session est conservée)
+		window.pbSignIn = () => signInWithRedirect(auth, new GoogleAuthProvider());
+		window.pbSignOut = () => signOut(auth);
+
+		// enregistre une victoire : mêmes données et mêmes règles que le jeu web (voir firestore.rules)
+		window.pbRecord = async (level, score, stars, ballsLeft, name, avatar) => {
+			if (!user) return false;
+			try {
+				const pRef = doc(db, 'players', user.uid), gRef = doc(db, 'players', user.uid, 'progress', String(level));
+				if (!(await getDoc(pRef)).exists()) {
+					await setDoc(pRef, { name, avatar, totalScore: 0, levelsDone: 0, maxLevel: 0, totalStars: 0, createdAt: serverTimestamp(), updatedAt: serverTimestamp() });
+				}
+				await runTransaction(db, async (tx) => {
+					const [p, g] = await Promise.all([tx.get(pRef), tx.get(gRef)]);
+					const old = g.exists() ? g.data() : { bestScore: 0, stars: 0, ballsLeft: 0, attempts: 0, wins: 0, completed: 0 };
+					const best = Math.max(old.bestScore || 0, score), st = Math.max(old.stars || 0, Math.min(3, stars)), bl = Math.max(old.ballsLeft || 0, ballsLeft);
+					tx.set(gRef, { level, bestScore: best, stars: st, ballsLeft: bl, attempts: (old.attempts || 0) + 1, wins: (old.wins || 0) + 1, completed: 1, updatedAt: serverTimestamp() });
+					const pd = p.data() || {};
+					tx.update(pRef, {
+						name, avatar,
+						totalScore: (pd.totalScore || 0) + (best - (old.bestScore || 0)),
+						levelsDone: (pd.levelsDone || 0) + (old.completed ? 0 : 1),
+						maxLevel: Math.max(pd.maxLevel || 0, level),
+						totalStars: (pd.totalStars || 0) + (st - (old.stars || 0)),
+						updatedAt: serverTimestamp(),
+					});
+				});
+				return true;
+			} catch (e) { console.warn('pbRecord', e); return false; }
+		};
+	</script>
+</body>
+</html>
+
