@@ -7,7 +7,7 @@
 **Fais tomber toutes les technos !**
 Un jeu de tir en 2.5D où tu fais s'effondrer des piles de cubes de langages et de frameworks de programmation, avec un nombre de balles limité.
 
-[**▶ Jouer en ligne**](https://princess-buster.vercel.app/) · [**⬇ Télécharger l'APK**](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) · [Installer sur mobile](#-installer-sur-mobile) · [Contribuer](CONTRIBUTING.md)
+[**Jouer en ligne**](https://princess-buster.vercel.app/) · [**Télécharger l'APK**](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) · [Installer sur mobile](#-installer-sur-mobile) · [Contribuer](CONTRIBUTING.md)
 
 [![CI](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml/badge.svg)](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-ffd23f.svg)](LICENSE)
@@ -61,34 +61,34 @@ Tu **gagnes** quand la table est vide, tu **perds** quand tu n'as plus de balles
 
 ## Jouer et installer
 
-- ▶️ **En ligne** : <https://princess-buster.vercel.app/>, sur téléphone, tablette et ordinateur.
-- 📱 **<a id="-installer-sur-mobile"></a>Installer sur mobile (PWA)** : ouvre le jeu dans Chrome (Android) → menu ⋮ → **Installer l'application** ; sur iPhone (Safari) → Partager → **Sur l'écran d'accueil**. Le jeu s'ouvre alors en plein écran comme une vraie application, sans APK à télécharger.
-- 🤖 **APK Android** : [PrincessBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) (téléphones arm64, depuis la page [Releases](https://github.com/princesse-aku/princess_buster/releases)). Autorise l'installation depuis ton navigateur. La connexion Google n'y est pas disponible : pour le classement, utilise la version en ligne ou la PWA.
-- 💻 **En local** : voir [Démarrage rapide](#démarrage-rapide-développeurs).
+- **En ligne** : <https://princess-buster.vercel.app/>, sur téléphone, tablette et ordinateur.
+- **<a id="-installer-sur-mobile"></a>Installer sur mobile (PWA)** : ouvre le jeu dans Chrome (Android) → menu ⋮ → **Installer l'application** ; sur iPhone (Safari) → Partager → **Sur l'écran d'accueil**. Le jeu s'ouvre alors en plein écran comme une vraie application, sans APK à télécharger.
+- **APK Android** : [PrincessBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) (téléphones arm64, depuis la page [Releases](https://github.com/princesse-aku/princess_buster/releases)). Autorise l'installation depuis ton navigateur. La connexion Google n'y est pas disponible : pour le classement, utilise la version en ligne ou la PWA.
+- **En local** : voir [Démarrage rapide](#démarrage-rapide-développeurs).
 
 Au premier lancement : écran de démarrage, conditions d'utilisation, puis **connexion avec Google** (pour sauvegarder ta progression dans le cloud et apparaître dans le classement) ou **« Jouer sans compte »**. Tu peux te connecter plus tard depuis ton profil.
 
 ## Fonctionnalités
 
-- 🎯 **1000 niveaux** décrits en JSON, **50 technologies** (dont les logos des IA : ChatGPT, Claude, Gemini, Grok, Mistral…) débloquées pas à pas
-- 🎨 **12 décors de jeu** qui changent de niveau en niveau : prairie, nuit, coucher de soleil, neige, désert, océan, bonbons, forêt, espace, automne, volcan, néon
-- 🏙️ **Accueil illustré** : une ville futuriste plein écran qui s'adapte à toutes les résolutions (portrait, paysage, tablette), avec la tasse du joueur et son tas de cubes au centre
-- 🧱 **Pièces de formats variés** : carrés, rectangles larges ou hauts, 2×2, 3×1, 3×2
-- 💥 **Effondrements physiques** : pièces éjectées sur le côté ou vers le fond, chaînes de chutes, éclats colorés au sol (moteur Matter.js)
-- 💥 **Impact explosif** : boule de feu et souffle qui repousse les pièces voisines ; les pièces envoyées derrière la table partent en arc, rapetissent et se brisent sur l'herbe
-- ⭐ **Pièces spéciales** : **pièce d'or** (+1 balle), **baril explosif** (souffle les pièces proches, en chaîne) et **bloc à flèche** (balaie toute la rangée dans le sens de la flèche)
-- 🔴 **Jauge de balles** agrandie sous le compteur (vert, orange, rouge) et une réserve de balles plus généreuse
-- 🛢️ **Tambours et tours** : pièces cylindriques (barils) et, à partir du niveau 251, des tours en piliers, châteaux et flèches
-- 🔒 **Aucun cube suspendu dans le vide** : chaque pièce repose sur une autre ou sur la table (vérifié par `npm test`)
-- 🎁 **Bonus** : **tir triple** (dès le niveau 3) et **super balle** (dès le niveau 10), un de chaque par niveau
-- 👤 **Profils** : 15 avatars illustrés, nom modifiable, statistiques ; un avatar par défaut est attribué à la première connexion
-- ☁️ **Connexion Google, progression dans le cloud et classement général** avec Firebase / Firestore (optionnel)
-- 🏆 **Classement** avec podium, top 10 et page complète, débloqué au niveau 5
-- 📱 **Plein écran adaptatif** : téléphone, tablette, ordinateur, portrait ou paysage ; installable (PWA)
-- 🔊 Musique de fond et bruitages synthétisés en WebAudio (aucun fichier audio), avec réglages son / musique / vibrations
-- ⚡ **Optimisé pour le mobile** : décor mis en cache, résolution du canvas plafonnée et réduite automatiquement si l'appareil rame
-- 🔎 **SEO et partage** : balises Open Graph / Twitter, données structurées, `robots.txt`, `sitemap.xml`, image de partage 1200×630
-- 🧩 **0 dépendance npm** : Node.js et un navigateur suffisent (Matter.js est fourni dans `public/vendor/`)
+- **1000 niveaux** décrits en JSON, **50 technologies** (dont les logos des IA : ChatGPT, Claude, Gemini, Grok, Mistral…) débloquées pas à pas
+- **12 décors de jeu** qui changent de niveau en niveau : prairie, nuit, coucher de soleil, neige, désert, océan, bonbons, forêt, espace, automne, volcan, néon
+- **Accueil illustré** : une ville futuriste plein écran qui s'adapte à toutes les résolutions (portrait, paysage, tablette), avec la tasse du joueur et son tas de cubes au centre
+- **Pièces de formats variés** : carrés, rectangles larges ou hauts, 2×2, 3×1, 3×2
+- **Effondrements physiques** : pièces éjectées sur le côté ou vers le fond, chaînes de chutes, éclats colorés au sol (moteur Matter.js)
+- **Impact explosif** : boule de feu et souffle qui repousse les pièces voisines ; les pièces envoyées derrière la table partent en arc, rapetissent et se brisent sur l'herbe
+- **Pièces spéciales** : **pièce d'or** (+1 balle), **baril explosif** (souffle les pièces proches, en chaîne) et **bloc à flèche** (balaie toute la rangée dans le sens de la flèche)
+- **Jauge de balles** agrandie sous le compteur (vert, orange, rouge) et une réserve de balles plus généreuse
+- **Tambours et tours** : pièces cylindriques (barils) et, à partir du niveau 251, des tours en piliers, châteaux et flèches
+- **Aucun cube suspendu dans le vide** : chaque pièce repose sur une autre ou sur la table (vérifié par `npm test`)
+- **Bonus** : **tir triple** (dès le niveau 3) et **super balle** (dès le niveau 10), un de chaque par niveau
+- **Profils** : 15 avatars illustrés, nom modifiable, statistiques ; un avatar par défaut est attribué à la première connexion
+- **Connexion Google, progression dans le cloud et classement général** avec Firebase / Firestore (optionnel)
+- **Classement** avec podium, top 10 et page complète, débloqué au niveau 5
+- **Plein écran adaptatif** : téléphone, tablette, ordinateur, portrait ou paysage ; installable (PWA)
+- Musique de fond et bruitages synthétisés en WebAudio (aucun fichier audio), avec réglages son / musique / vibrations
+- **Optimisé pour le mobile** : décor mis en cache, résolution du canvas plafonnée et réduite automatiquement si l'appareil rame
+- **SEO et partage** : balises Open Graph / Twitter, données structurées, `robots.txt`, `sitemap.xml`, image de partage 1200×630
+- **0 dépendance npm** : Node.js et un navigateur suffisent (Matter.js est fourni dans `public/vendor/`)
 
 ## Progression, score et classement
 
@@ -124,7 +124,7 @@ npm run levels    # régénère les niveaux (attention : écrase public/levels)
 | Tirer | Relâcher | `Espace` ou `Entrée` |
 | Annuler un tir | Ramener le doigt vers le canon avant de relâcher | n/a |
 | Bonus | Choisis-le sur la fiche du niveau | `1` (triple), `2` (super) |
-| Plein écran | Bouton ⛶ | n/a |
+| Plein écran | Bouton plein écran | n/a |
 
 ## Les 1000 niveaux
 
