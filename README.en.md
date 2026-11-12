@@ -7,7 +7,7 @@
 **Bring down all the techs!**
 A 2.5D shooting game where you make stacks of programming-language and framework cubes collapse, with a limited number of balls.
 
-[**▶ Play online**](https://princess-buster.vercel.app/) · [**⬇ Download the APK**](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) · [Install on mobile](#-install-on-mobile) · [Contribute](CONTRIBUTING.md)
+[**Play online**](https://princess-buster.vercel.app/) · [**Download the APK**](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) · [Install on mobile](#-install-on-mobile) · [Contribute](CONTRIBUTING.md)
 
 [![CI](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml/badge.svg)](https://github.com/princesse-aku/princess_buster/actions/workflows/ci.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-ffd23f.svg)](LICENSE)
@@ -42,32 +42,32 @@ You **win** when the table is empty and **lose** when you run out of balls while
 
 ## Play and install
 
-- ▶️ **Online**: <https://princess-buster.vercel.app/> on phone, tablet and desktop.
-- 📱 **<a id="-install-on-mobile"></a>Install on mobile (PWA)**: open the game in Chrome (Android) → ⋮ menu → **Install app**; on iPhone (Safari) → Share → **Add to Home Screen**. It then runs full screen like a native app, no APK needed.
-- 🤖 **Android APK**: [PrincessBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) (arm64 phones, from the [Releases](https://github.com/princesse-aku/princess_buster/releases) page). Allow installation from your browser. Google sign-in is not available in the APK: use the online version or the PWA for the leaderboard.
-- 💻 **Locally**: see [Quick start](#quick-start-developers).
+- **Online**: <https://princess-buster.vercel.app/> on phone, tablet and desktop.
+- **<a id="-install-on-mobile"></a>Install on mobile (PWA)**: open the game in Chrome (Android) → ⋮ menu → **Install app**; on iPhone (Safari) → Share → **Add to Home Screen**. It then runs full screen like a native app, no APK needed.
+- **Android APK**: [PrincessBuster-0.1.0-aarch64.apk](https://github.com/princesse-aku/princess_buster/releases/download/v0.1.0/PrincessBuster-0.1.0-aarch64.apk) (arm64 phones, from the [Releases](https://github.com/princesse-aku/princess_buster/releases) page). Allow installation from your browser. Google sign-in is not available in the APK: use the online version or the PWA for the leaderboard.
+- **Locally**: see [Quick start](#quick-start-developers).
 
 On first launch: splash screen, terms, then **Sign in with Google** (to save your progress in the cloud and appear on the leaderboard) or **Play without an account**. You can sign in later from your profile.
 
 ## Features
 
-- 🎯 **1000 levels** in JSON files, **50 technologies** (including AI logos: ChatGPT, Claude, Gemini, Grok, Mistral…) unlocked step by step
-- 🎨 **12 in-game backgrounds** that change from level to level
-- 🏙️ **Illustrated home screen**: a full-screen futuristic city that adapts to every resolution, with the player's cup and a pile of cubes in the middle
-- 💥 **Physical collapses**: pieces ejected sideways or backwards, chains of falls, colored fragments on the ground (Matter.js)
-- 💥 **Explosive impact**: a fireball and blast push neighbouring pieces away; pieces sent behind the table fly in an arc, shrink and shatter on the grass
-- ⭐ **Special pieces**: **gold coin** (+1 ball), **explosive barrel** (blasts nearby pieces, chain reactions) and **arrow block** (sweeps its whole row in the arrow's direction)
-- 🔴 **Bigger ball gauge** under the counter (green, orange, red) and a more generous ball reserve
-- 🛢️ **Drums and towers**: cylindrical pieces (barrels) and, from level 251, pillar, castle and spire towers
-- 🔒 **No floating cubes**: every piece rests on another piece or on the table (checked by `npm test`)
-- 🎁 **Power-ups**: **triple shot** (level 3) and **super ball** (level 10), one of each per level
-- 👤 **Profiles**: 15 illustrated avatars, editable name; a default avatar is assigned at first sign-in
-- ☁️ **Google sign-in, cloud progress and a global leaderboard** with Firebase / Firestore (optional)
-- 🏆 **Leaderboard** with a podium, a top 10 and a full page, unlocked at level 5
-- 📱 **Adaptive full screen** (portrait, landscape, tablet) and installable (PWA)
-- ⚡ **Mobile-friendly**: cached background layers, capped canvas resolution that lowers itself automatically on slow devices
-- 🔊 Music and sound effects synthesized with WebAudio (no audio files)
-- 🧩 **Zero npm dependencies**: Node.js and a browser are enough (Matter.js is bundled)
+- **1000 levels** in JSON files, **50 technologies** (including AI logos: ChatGPT, Claude, Gemini, Grok, Mistral…) unlocked step by step
+- **12 in-game backgrounds** that change from level to level
+- **Illustrated home screen**: a full-screen futuristic city that adapts to every resolution, with the player's cup and a pile of cubes in the middle
+- **Physical collapses**: pieces ejected sideways or backwards, chains of falls, colored fragments on the ground (Matter.js)
+- **Explosive impact**: a fireball and blast push neighbouring pieces away; pieces sent behind the table fly in an arc, shrink and shatter on the grass
+- **Special pieces**: **gold coin** (+1 ball), **explosive barrel** (blasts nearby pieces, chain reactions) and **arrow block** (sweeps its whole row in the arrow's direction)
+- **Bigger ball gauge** under the counter (green, orange, red) and a more generous ball reserve
+- **Drums and towers**: cylindrical pieces (barrels) and, from level 251, pillar, castle and spire towers
+- **No floating cubes**: every piece rests on another piece or on the table (checked by `npm test`)
+- **Power-ups**: **triple shot** (level 3) and **super ball** (level 10), one of each per level
+- **Profiles**: 15 illustrated avatars, editable name; a default avatar is assigned at first sign-in
+- **Google sign-in, cloud progress and a global leaderboard** with Firebase / Firestore (optional)
+- **Leaderboard** with a podium, a top 10 and a full page, unlocked at level 5
+- **Adaptive full screen** (portrait, landscape, tablet) and installable (PWA)
+- **Mobile-friendly**: cached background layers, capped canvas resolution that lowers itself automatically on slow devices
+- Music and sound effects synthesized with WebAudio (no audio files)
+- **Zero npm dependencies**: Node.js and a browser are enough (Matter.js is bundled)
 
 ## Progress, score and leaderboard
 
